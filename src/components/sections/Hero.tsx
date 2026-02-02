@@ -5,40 +5,26 @@ import { useReducedMotion } from '@/hooks'
 import { ScrollIndicator } from '@/components/ui'
 import { DURATION, EASING } from '@/lib/constants'
 
-/**
- * Hero section component for the landing page.
- *
- * Features:
- * - Full viewport height with centered content
- * - Company name in serif font with tagline
- * - Staggered fade-in animations
- * - Scroll indicator at bottom pointing to services section
- * - Respects user's reduced motion preferences
- *
- * Design Pattern: Container/Item animation pattern for staggered reveals
- */
 export function Hero() {
   const reducedMotion = useReducedMotion()
 
-  // Container variant controls stagger timing for children
   const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: reducedMotion ? 0 : 0.2,
-        delayChildren: reducedMotion ? 0 : 0.3,
+        staggerChildren: reducedMotion ? 0 : 0.3,
+        delayChildren: reducedMotion ? 0 : 0.5,
       },
     },
   }
 
-  // Item variant for individual animated elements
   const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: DURATION.normal, ease: EASING.easeOut },
+      transition: { duration: DURATION.slow, ease: EASING.easeOut },
     },
   }
 
@@ -55,14 +41,14 @@ export function Hero() {
       >
         <motion.h1
           variants={item}
-          className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 tracking-tight"
+          className="font-serif text-6xl md:text-7xl lg:text-8xl text-text-primary mb-8 tracking-tight"
         >
-          Neblina Digital
+          Neblina
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="text-xl md:text-2xl text-text-secondary font-light max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed"
         >
           Clarity through the mist
         </motion.p>
@@ -71,7 +57,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: reducedMotion ? 0 : 1.5, duration: 0.5 }}
+        transition={{ delay: reducedMotion ? 0 : 2, duration: 0.8 }}
         className="absolute bottom-12"
       >
         <ScrollIndicator targetId="services" />

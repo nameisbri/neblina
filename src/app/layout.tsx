@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://neblina.digital'),
-  title: 'Neblina Digital — Privacy-First Software Development',
+  title: 'Neblina — Privacy-First Software Development',
   description:
     'A software development and digital product studio based in Ontario, Canada. We build privacy-first mobile apps, design thoughtful products, and provide technology consulting.',
   keywords: [
@@ -36,22 +36,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     url: 'https://neblina.digital',
-    title: 'Neblina Digital — Privacy-First Software Development',
+    title: 'Neblina — Privacy-First Software Development',
     description:
       'A software development and digital product studio. Building with intention, not algorithms.',
-    siteName: 'Neblina Digital',
+    siteName: 'Neblina',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Neblina Digital',
+        alt: 'Neblina',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neblina Digital — Privacy-First Software Development',
+    title: 'Neblina — Privacy-First Software Development',
     description:
       'A software development and digital product studio. Building with intention, not algorithms.',
     images: ['/og-image.png'],
