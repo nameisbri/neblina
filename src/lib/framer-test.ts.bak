@@ -1,0 +1,5 @@
+// Test file to verify Framer Motion is correctly installed
+import { motion, AnimatePresence } from 'framer-motion'
+
+// If this file compiles without errors, Framer Motion is correctly installed
+export const testImports = { motion, AnimatePresence }
