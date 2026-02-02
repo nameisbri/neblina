@@ -6,6 +6,8 @@ import { ScrollIndicator } from '@/components/ui'
 import { GlowOrb } from '@/components/effects'
 import { DURATION, EASING } from '@/lib/constants'
 
+const offerings = ['Mobile Apps', 'Web Development', 'Product Design', 'Consulting']
+
 export function Hero() {
   const reducedMotion = useReducedMotion()
 
@@ -61,7 +63,7 @@ export function Hero() {
         className="relative z-10 max-w-5xl"
       >
         {/* Animated title with letter-by-letter reveal */}
-        <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl mb-8 tracking-tight">
+        <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl mb-6 tracking-tight">
           {title.split('').map((letter, i) => (
             <motion.span
               key={i}
@@ -79,26 +81,39 @@ export function Hero() {
           ))}
         </h1>
 
-        {/* Decorative line */}
-        <motion.div
-          variants={item}
-          className="w-24 h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-particle-glow/50 to-transparent"
-        />
-
         {/* Tagline */}
         <motion.p
           variants={item}
-          className="text-2xl md:text-3xl lg:text-4xl text-text-secondary font-serif font-light max-w-2xl mx-auto leading-relaxed tracking-wide"
+          className="text-2xl md:text-3xl text-text-secondary font-serif font-light max-w-2xl mx-auto leading-relaxed mb-8"
         >
-          Clarity through the mist
+          Privacy-first software studio
         </motion.p>
 
-        {/* Subtitle */}
+        {/* What we offer - pills */}
+        <motion.div
+          variants={item}
+          className="flex flex-wrap justify-center gap-3 mb-8"
+        >
+          {offerings.map((offering, index) => (
+            <motion.span
+              key={offering}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: reducedMotion ? 0 : 1.5 + index * 0.1 }}
+              className="px-4 py-2 text-sm text-text-secondary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:text-text-primary transition-colors"
+            >
+              {offering}
+            </motion.span>
+          ))}
+        </motion.div>
+
+        {/* Brief description */}
         <motion.p
           variants={item}
-          className="mt-6 text-lg text-fog-mid max-w-xl mx-auto"
+          className="text-fog-mid max-w-lg mx-auto text-base"
         >
-          Privacy-first software development studio
+          We craft thoughtful digital products with intention,
+          building apps and experiences that respect users and stand the test of time.
         </motion.p>
       </motion.div>
 
@@ -111,9 +126,6 @@ export function Hero() {
       >
         <ScrollIndicator targetId="services" />
       </motion.div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep-night to-transparent pointer-events-none" />
     </section>
   )
 }
