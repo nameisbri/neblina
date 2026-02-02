@@ -42,3 +42,13 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# Process docs
+PRODUCT_SPEC.md
+TECHNICAL_DESIGN.md
+/docs/
+
+# AI workflow
+.claude/
+.cursor/
+CLAUDE.md
