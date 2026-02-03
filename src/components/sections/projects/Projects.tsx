@@ -17,14 +17,11 @@ export function Projects() {
       {/* Header */}
       <ScrollReveal>
         <div className="text-center mb-16 lg:mb-20">
-          <span className="text-particle-glow text-sm tracking-[0.3em] uppercase font-light">
-            Selected Work
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary mt-4">
-            Projects
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary">
+            From fog to form
           </h2>
           <p className="text-text-secondary mt-4 max-w-xl mx-auto">
-            Real products, real clients, real impact
+            Select projects where clarity emerged.
           </p>
           <div className="w-16 h-px mx-auto mt-6 bg-gradient-to-r from-transparent via-fog-mid to-transparent" />
         </div>

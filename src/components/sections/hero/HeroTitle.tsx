@@ -79,10 +79,10 @@ export function HeroTitle({
     }
   )
 
-  const title = 'Neblina'
+  const words = ['Where', 'clarity', 'emerges', 'from', 'the', 'fog.']
 
-  // Letter animation variants - fast and snappy
-  const letterVariants = {
+  // Word animation variants
+  const wordVariants = {
     hidden: {
       opacity: 0,
       y: 30,
@@ -94,7 +94,7 @@ export function HeroTitle({
       scale: 1,
       transition: {
         duration: 0.4,
-        delay: reducedMotion ? 0 : (delay / 1000) + i * 0.05,
+        delay: reducedMotion ? 0 : (delay / 1000) + i * 0.08,
         ease: EASING.easeOut,
       },
     }),
@@ -127,9 +127,9 @@ export function HeroTitle({
   if (!isClient) {
     // SSR fallback
     return (
-      <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl tracking-tight">
+      <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight">
         <span className="bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent">
-          {title}
+          {words.join(' ')}
         </span>
       </h1>
     )
@@ -137,27 +137,27 @@ export function HeroTitle({
 
   return (
     <motion.h1
-      className="font-serif text-7xl md:text-8xl lg:text-9xl tracking-tight"
+      className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight"
       variants={containerVariants}
       initial="hidden"
       animate={entranceStarted ? 'visible' : 'hidden'}
     >
       <motion.span
-        className="inline-flex"
+        className="inline-flex flex-wrap justify-center gap-x-4"
         animate={!reducedMotion ? 'float' : undefined}
         variants={floatVariants}
       >
-        {title.split('').map((letter, i) => (
+        {words.map((word, i) => (
           <motion.span
             key={i}
             custom={i}
-            variants={letterVariants}
+            variants={wordVariants}
             className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
             style={{
               textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,
             }}
           >
-            {letter}
+            {word}
           </motion.span>
         ))}
       </motion.span>

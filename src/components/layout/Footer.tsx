@@ -33,12 +33,12 @@ export function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Clarity through the mist
+          Emerging clarity.
         </motion.p>
 
         {/* Info */}
         <motion.div
-          className="flex flex-col items-center justify-center gap-2 text-center"
+          className="flex flex-col items-center justify-center text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -46,9 +46,6 @@ export function Footer() {
         >
           <p className="text-sm text-fog-mid">
             &copy; 2026 Neblina Digital Inc.
-          </p>
-          <p className="text-xs text-fog-mid/70">
-            Ontario, Canada
           </p>
         </motion.div>
       </div>

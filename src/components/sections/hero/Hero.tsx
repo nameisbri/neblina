@@ -10,8 +10,6 @@ import { HeroTitle } from './HeroTitle'
 import { HeroEntrance } from './HeroEntrance'
 import { BreathIndicator } from './BreathIndicator'
 
-const offerings = ['Mobile Apps', 'Web Development', 'Product Design', 'Consulting']
-
 export function Hero() {
   const reducedMotion = useReducedMotion()
   const [entranceComplete, setEntranceComplete] = useState(reducedMotion)
@@ -74,43 +72,22 @@ export function Hero() {
             />
           </div>
 
-          {/* Tagline */}
+          {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-2xl md:text-3xl text-text-secondary font-serif font-light max-w-2xl mx-auto leading-relaxed mb-8"
+            className="text-lg md:text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            Privacy-first software studio
+            Strategy, design, and digital products for brands navigating what&apos;s next.
           </motion.p>
 
-          {/* What we offer - pills */}
-          <motion.div
+          {/* CTA */}
+          <motion.a
             variants={itemVariants}
-            className="flex flex-wrap justify-center gap-3 mb-8"
+            href="#projects"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm text-text-primary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:bg-fog-mid/10 transition-colors duration-300"
           >
-            {offerings.map((offering, index) => (
-              <motion.span
-                key={offering}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  delay: reducedMotion ? 0 : 1.2 + index * 0.08,
-                  duration: 0.3,
-                }}
-                className="px-4 py-2 text-sm text-text-secondary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:text-text-primary transition-colors duration-300"
-              >
-                {offering}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          {/* Brief description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-fog-mid max-w-lg mx-auto text-base"
-          >
-            We craft thoughtful digital products with intention,
-            building apps and experiences that respect users and stand the test of time.
-          </motion.p>
+            See the work
+          </motion.a>
         </motion.div>
       </HeroEntrance>
 
