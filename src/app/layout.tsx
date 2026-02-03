@@ -18,16 +18,16 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://neblina.digital'),
-  title: 'Neblina — Privacy-First Software Development',
+  metadataBase: new URL('https://neblina.ca'),
+  title: 'Neblina — Where Clarity Emerges',
   description:
-    'A software development and digital product studio based in Ontario, Canada. We build privacy-first mobile apps, design thoughtful products, and provide technology consulting.',
+    "A digital product studio based in Ontario, Canada. Strategy, design, and digital products for brands navigating what's next.",
   keywords: [
+    'digital product studio',
+    'product strategy',
+    'product design',
     'software development',
     'mobile app development',
-    'privacy-first',
-    'product design',
-    'technology consulting',
     'Ontario',
     'Canada',
   ],
@@ -36,25 +36,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://neblina.digital',
-    title: 'Neblina — Privacy-First Software Development',
+    url: 'https://neblina.ca',
+    title: 'Neblina — Where Clarity Emerges',
     description:
-      'A software development and digital product studio. Building with intention, not algorithms.',
+      "Strategy, design, and digital products for brands navigating what's next.",
     siteName: 'Neblina',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Neblina',
+        alt: 'Neblina — Where Clarity Emerges',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neblina — Privacy-First Software Development',
+    title: 'Neblina — Where Clarity Emerges',
     description:
-      'A software development and digital product studio. Building with intention, not algorithms.',
+      "Strategy, design, and digital products for brands navigating what's next.",
     images: ['/og-image.png'],
   },
   robots: {
