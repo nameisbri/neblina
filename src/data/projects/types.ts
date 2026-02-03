@@ -33,6 +33,13 @@ export interface ProjectLink {
   type: 'external' | 'github' | 'appstore' | 'testflight'
 }
 
+/** Screenshot for project showcase */
+export interface ProjectScreenshot {
+  src: string
+  alt: string
+  caption?: string
+}
+
 /** Base project interface with shared fields */
 interface BaseProject {
   id: string
@@ -53,6 +60,7 @@ export interface FlagshipProject extends BaseProject {
   techStack: TechStackItem[]
   whyItMatters: string
   links?: ProjectLink[]
+  screenshots?: ProjectScreenshot[]
 }
 
 /** Standard featured project (Yellow Brolly, Marketing Site) */

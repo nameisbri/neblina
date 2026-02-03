@@ -8,6 +8,7 @@ export type {
   ProjectStatus,
   ProjectFeature,
   ProjectLink,
+  ProjectScreenshot,
   FlagshipProject,
   StandardProject,
   ProcessProject,

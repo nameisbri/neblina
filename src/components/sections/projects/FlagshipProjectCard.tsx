@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ScrollReveal } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
@@ -59,6 +60,47 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
           <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-3xl">
             {project.description}
           </p>
+
+          {/* Screenshots */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <div className="mb-10">
+              <h4 className="text-xs text-text-secondary tracking-wider uppercase mb-4">
+                App Preview
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4">
+                {project.screenshots.map((screenshot, index) => (
+                  <motion.div
+                    key={screenshot.src}
+                    className="relative group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="relative overflow-hidden rounded-xl border border-fog-mid/30 bg-fog-deep/50">
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        width={200}
+                        height={400}
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      {/* Subtle glow on hover */}
+                      <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
+                        style={{ background: project.theme.glow }}
+                      />
+                    </div>
+                    {screenshot.caption && (
+                      <p className="text-xs text-text-secondary mt-2 text-center">
+                        {screenshot.caption}
+                      </p>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Feature highlights grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">

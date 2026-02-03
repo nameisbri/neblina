@@ -60,4 +60,26 @@ export const discloserProject: FlagshipProject = {
     secondary: '#8b5cf6',
     glow: 'rgba(99, 102, 241, 0.3)',
   },
+  screenshots: [
+    {
+      src: '/projects/discloser/screenshot-1.png',
+      alt: 'Discloser app main interface',
+      caption: 'Dashboard',
+    },
+    {
+      src: '/projects/discloser/screenshot-2.png',
+      alt: 'Discloser app sharing screen',
+      caption: 'Sharing',
+    },
+    {
+      src: '/projects/discloser/screenshot-3.png',
+      alt: 'Discloser app results screen',
+      caption: 'Results',
+    },
+    {
+      src: '/projects/discloser/screenshot-4.png',
+      alt: 'Discloser app profile screen',
+      caption: 'Profile',
+    },
+  ],
 }
