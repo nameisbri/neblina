@@ -211,7 +211,7 @@ export function ContactForm() {
             className="w-full"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {isSubmitting ? 'Sending...' : 'Start a conversation'}
           </Button>
         </motion.form>
       )}

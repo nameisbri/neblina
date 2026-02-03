@@ -17,15 +17,11 @@ export function Contact() {
       <div className="max-w-2xl mx-auto relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="text-particle-glow text-sm tracking-[0.3em] uppercase font-light">
-              Get In Touch
-            </span>
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mt-4 mb-6">
-              Let&apos;s Talk
+            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
+              Have something forming?
             </h2>
             <p className="text-text-secondary text-lg max-w-lg mx-auto">
-              Whether you&apos;re building something new or need a trusted technical partner,
-              we&apos;d love to hear from you.
+              We work with a small number of partners at a time. If you&apos;re building something that requires care, we&apos;d like to hear about it.
             </p>
           </div>
         </ScrollReveal>
