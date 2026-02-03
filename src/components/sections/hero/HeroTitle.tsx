@@ -1,0 +1,166 @@
+'use client'
+
+import { useEffect, useState, useMemo } from 'react'
+import { motion, useSpring, useTransform } from 'framer-motion'
+import { useMousePosition, useReducedMotion } from '@/hooks'
+import { DURATION, EASING, ENTRANCE } from '@/lib/constants'
+
+interface HeroTitleProps {
+  /** Whether the entrance animation has started */
+  entranceStarted?: boolean
+  /** Delay before title starts animating (ms) */
+  delay?: number
+}
+
+/**
+ * Enhanced Hero title with:
+ * - 3D text shadow that responds to mouse position
+ * - Letter-by-letter reveal with blur-to-sharp transition
+ * - Subtle floating animation after reveal
+ */
+export function HeroTitle({
+  entranceStarted = true,
+  delay = ENTRANCE.titleDelay,
+}: HeroTitleProps) {
+  const mousePosition = useMousePosition()
+  const reducedMotion = useReducedMotion()
+  const [isClient, setIsClient] = useState(false)
+  const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 })
+
+  useEffect(() => {
+    setIsClient(true)
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Spring-based mouse tracking for smooth shadow movement
+  const mouseX = useSpring(windowSize.width / 2, { stiffness: 50, damping: 20 })
+  const mouseY = useSpring(windowSize.height / 2, { stiffness: 50, damping: 20 })
+
+  useEffect(() => {
+    if (mousePosition && !reducedMotion) {
+      mouseX.set(mousePosition.x)
+      mouseY.set(mousePosition.y)
+    }
+  }, [mousePosition, mouseX, mouseY, reducedMotion])
+
+  // Calculate shadow offset based on mouse position
+  // Max offset of 12px in any direction
+  const shadowX = useTransform(
+    mouseX,
+    [0, windowSize.width],
+    [12, -12]
+  )
+  const shadowY = useTransform(
+    mouseY,
+    [0, windowSize.height],
+    [8, -8]
+  )
+
+  // Generate text shadow string
+  const textShadow = useTransform(
+    [shadowX, shadowY],
+    ([x, y]: number[]) => {
+      if (reducedMotion) {
+        return '0 0 80px rgba(165, 180, 252, 0.5)'
+      }
+      return `
+        ${x * 0.3}px ${y * 0.3}px 10px rgba(165, 180, 252, 0.4),
+        ${x * 0.6}px ${y * 0.6}px 30px rgba(165, 180, 252, 0.25),
+        ${x}px ${y}px 60px rgba(165, 180, 252, 0.15),
+        0 0 100px rgba(165, 180, 252, 0.3)
+      `
+    }
+  )
+
+  const title = 'Neblina'
+
+  // Letter animation variants - fast and snappy
+  const letterVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      scale: 0.95,
+    },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        delay: reducedMotion ? 0 : (delay / 1000) + i * 0.05,
+        ease: EASING.easeOut,
+      },
+    }),
+  }
+
+  // Floating animation after reveal (subtle)
+  const floatVariants = {
+    float: {
+      y: [0, -6, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: 'easeInOut' as const,
+      },
+    },
+  }
+
+  // Container for staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: reducedMotion ? 0 : 0.1,
+        delayChildren: reducedMotion ? 0 : delay / 1000,
+      },
+    },
+  }
+
+  if (!isClient) {
+    // SSR fallback
+    return (
+      <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl tracking-tight">
+        <span className="bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent">
+          {title}
+        </span>
+      </h1>
+    )
+  }
+
+  return (
+    <motion.h1
+      className="font-serif text-7xl md:text-8xl lg:text-9xl tracking-tight"
+      variants={containerVariants}
+      initial="hidden"
+      animate={entranceStarted ? 'visible' : 'hidden'}
+    >
+      <motion.span
+        className="inline-flex"
+        animate={!reducedMotion ? 'float' : undefined}
+        variants={floatVariants}
+      >
+        {title.split('').map((letter, i) => (
+          <motion.span
+            key={i}
+            custom={i}
+            variants={letterVariants}
+            className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
+            style={{
+              textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,
+            }}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.span>
+    </motion.h1>
+  )
+}

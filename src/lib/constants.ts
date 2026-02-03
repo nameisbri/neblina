@@ -72,4 +72,65 @@ export const Z_INDEX = {
   modal: 100,
   /** Toast notifications */
   toast: 150,
+  /** Custom cursor */
+  cursor: 9999,
+} as const
+
+// Hero entrance sequence timing (in milliseconds)
+export const ENTRANCE = {
+  /** Duration for fog to clear */
+  fogClear: 1200,
+  /** Duration for title reveal */
+  titleReveal: 800,
+  /** Duration for content fade in */
+  contentFade: 600,
+  /** Total entrance duration */
+  totalDuration: 2500,
+  /** Delay before title starts appearing */
+  titleDelay: 400,
+} as const
+
+// Fog system configuration
+export const FOG_CONFIG = {
+  /** Layer configurations for 5-layer system */
+  layers: [
+    { speed: 0.3, opacity: 0.15, blur: 40 },  // Very far - subtle depth
+    { speed: 0.5, opacity: 0.25, blur: 25 },  // Far background
+    { speed: 1.0, opacity: 0.35, blur: 15 },  // Middle ground
+    { speed: 1.5, opacity: 0.25, blur: 8 },   // Near
+    { speed: 2.0, opacity: 0.15, blur: 3 },   // Very close - wisps
+  ],
+  /** Entrance mode starts with dense fog */
+  entranceDensity: 1.5,
+  /** Normal operating density */
+  normalDensity: 1.0,
+} as const
+
+// Service accent colors for portals
+export const SERVICE_COLORS = {
+  mobile: { primary: '#6366f1', glow: 'rgba(99, 102, 241, 0.3)' },
+  product: { primary: '#a855f7', glow: 'rgba(168, 85, 247, 0.3)' },
+  consulting: { primary: '#3b82f6', glow: 'rgba(59, 130, 246, 0.3)' },
+  web: { primary: '#06b6d4', glow: 'rgba(6, 182, 212, 0.3)' },
+} as const
+
+// Particle counts by device capability tier
+export const PARTICLE_COUNTS = {
+  high: { stars: 100, dust: 50, glow: 20 },
+  medium: { stars: 60, dust: 30, glow: 12 },
+  low: { stars: 30, dust: 15, glow: 6 },
+} as const
+
+// Cursor configuration
+export const CURSOR_CONFIG = {
+  /** Base size of cursor orb */
+  size: 20,
+  /** Expanded size on hover */
+  hoverSize: 30,
+  /** Smoothing factor (higher = more responsive, lower = smoother) */
+  smoothing: 0.35,
+  /** Trail particle count */
+  trailLength: 3,
+  /** Magnetic pull radius */
+  magnetRadius: 80,
 } as const

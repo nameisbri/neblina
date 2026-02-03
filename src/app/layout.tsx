@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Cormorant_Garamond } from 'next/font/google'
 import { MotionProvider } from '@/contexts'
+import { CursorProvider, CustomCursor, CursorTrail } from '@/components/cursor'
 import './globals.css'
 
 const inter = Inter({
@@ -73,9 +74,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-deep-night font-sans text-text-primary antialiased">
-        <MotionProvider>
-          {children}
-        </MotionProvider>
+        <CursorProvider>
+          <MotionProvider>
+            <CustomCursor />
+            <CursorTrail />
+            {children}
+          </MotionProvider>
+        </CursorProvider>
       </body>
     </html>
   )

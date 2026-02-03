@@ -1,33 +1,64 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { motion, useSpring, useTransform } from 'framer-motion'
 import { useReducedMotion } from '@/hooks'
 import { FogLayer } from './FogLayer'
+import { FOG_CONFIG, ENTRANCE } from '@/lib/constants'
+
+interface FogSystemProps {
+  /** Enable entrance mode with dense fog that clears */
+  entranceMode?: boolean
+  /** Global density modifier (0-2, where 1 is normal) */
+  density?: number
+  /** Callback when entrance animation completes */
+  onEntranceComplete?: () => void
+}
 
 /**
  * Orchestrates multiple fog layers to create an immersive atmospheric effect.
  *
- * The system uses three layers with different parallax speeds to create
- * depth perception:
+ * Enhanced 5-layer system with entrance mode for dramatic hero reveals:
  *
- * 1. Background layer (0.5x speed): Slowest movement, appears farthest
- * 2. Midground layer (1.0x speed): Neutral movement, middle depth
- * 3. Foreground layer (1.5x speed): Fastest movement, appears closest
+ * 1. Very far layer (0.3x speed): Subtle depth, heaviest blur
+ * 2. Background layer (0.5x speed): Main atmosphere
+ * 3. Midground layer (1.0x speed): Neutral, medium blur
+ * 4. Foreground layer (1.5x speed): Closer wisps
+ * 5. Very close layer (2.0x speed): Fine detail, light blur
  *
- * Each layer has different opacity and blur values to enhance the depth effect.
- * The blur increases on closer layers, mimicking how atmospheric haze
- * appears in real photography.
- *
- * For users with reduced motion preferences, a static gradient fallback
- * is rendered instead of the animated layers.
+ * Entrance mode starts with 150% density fog that clears over 3 seconds.
  */
-export function FogSystem() {
+export function FogSystem({
+  entranceMode = false,
+  density: externalDensity = 1,
+  onEntranceComplete
+}: FogSystemProps) {
   const reducedMotion = useReducedMotion()
   const [isMobile, setIsMobile] = useState(false)
+  const [entranceComplete, setEntranceComplete] = useState(!entranceMode)
 
-  /**
-   * Detect mobile devices to reduce fog layers for performance.
-   */
+  // Spring-based density for smooth entrance animation
+  const densitySpring = useSpring(
+    entranceMode ? FOG_CONFIG.entranceDensity : FOG_CONFIG.normalDensity,
+    { stiffness: 20, damping: 15 }
+  )
+
+  // Combine spring density with external density control
+  const effectiveDensity = useTransform(
+    densitySpring,
+    (springVal) => springVal * externalDensity
+  )
+
+  // Track current density value for non-motion components
+  const [currentDensity, setCurrentDensity] = useState<number>(
+    entranceMode ? FOG_CONFIG.entranceDensity : FOG_CONFIG.normalDensity
+  )
+
+  useEffect(() => {
+    return effectiveDensity.on('change', (v) => setCurrentDensity(v))
+  }, [effectiveDensity])
+
+  // Detect mobile devices for performance optimization
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(
@@ -41,9 +72,48 @@ export function FogSystem() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Handle entrance animation
+  useEffect(() => {
+    if (entranceMode && !reducedMotion) {
+      // Start clearing fog after a brief moment
+      const clearTimer = setTimeout(() => {
+        densitySpring.set(FOG_CONFIG.normalDensity)
+      }, 500)
+
+      // Mark entrance complete after full duration
+      const completeTimer = setTimeout(() => {
+        setEntranceComplete(true)
+        onEntranceComplete?.()
+      }, ENTRANCE.fogClear)
+
+      return () => {
+        clearTimeout(clearTimer)
+        clearTimeout(completeTimer)
+      }
+    }
+  }, [entranceMode, reducedMotion, densitySpring, onEntranceComplete])
+
+  // Determine which layers to render based on device
+  const layersToRender = useMemo(() => {
+    if (isMobile) {
+      // Mobile: 3 layers for performance
+      return [
+        FOG_CONFIG.layers[1], // Background
+        FOG_CONFIG.layers[2], // Midground
+        FOG_CONFIG.layers[3], // Near
+      ]
+    }
+    // Desktop: all 5 layers
+    return FOG_CONFIG.layers
+  }, [isMobile])
+
+  // Variant assignment for visual variety
+  const layerVariants: Array<'cool' | 'warm' | 'neutral'> = [
+    'cool', 'neutral', 'warm', 'neutral', 'cool'
+  ]
+
   if (reducedMotion) {
     // Static gradient fallback for accessibility
-    // Maintains the visual atmosphere without motion
     return (
       <div
         className="pointer-events-none fixed inset-0 z-0"
@@ -58,22 +128,37 @@ export function FogSystem() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
       {/* Base gradient establishes the night sky foundation */}
-      <div
+      <motion.div
         className="absolute inset-0"
         style={{
           background: 'linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%)',
         }}
+        initial={entranceMode ? { opacity: 0.3 } : { opacity: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
       />
 
-      {/* Background fog - slowest parallax, highest blur for depth */}
-      <FogLayer speed={0.5} opacity={0.4} blur={20} />
+      {/* Render fog layers with density control */}
+      {layersToRender.map((config, index) => (
+        <FogLayer
+          key={index}
+          speed={config.speed}
+          opacity={config.opacity}
+          blur={config.blur}
+          density={currentDensity}
+          variant={layerVariants[index] || 'neutral'}
+        />
+      ))}
 
-      {/* Midground fog - neutral speed, medium blur */}
-      <FogLayer speed={1.0} opacity={0.5} blur={10} />
-
-      {/* Foreground fog - fastest parallax, lowest blur */}
-      {/* Skip on mobile for performance (2 layers instead of 3) */}
-      {!isMobile && <FogLayer speed={1.5} opacity={0.3} blur={5} />}
+      {/* Entrance overlay for extra dense fog at start */}
+      {entranceMode && !entranceComplete && (
+        <motion.div
+          className="absolute inset-0 bg-deep-night"
+          initial={{ opacity: 0.8 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: ENTRANCE.fogClear / 1000, ease: 'easeOut' }}
+        />
+      )}
     </div>
   )
 }

@@ -71,6 +71,54 @@
   }
 }
 
+/* Custom cursor - hide system cursor when active */
+body.custom-cursor-active {
+  cursor: none;
+}
+
+body.custom-cursor-active *,
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active input,
+body.custom-cursor-active textarea,
+body.custom-cursor-active [role="button"] {
+  cursor: none !important;
+}
+
+/* Flowing gradient animation for service portals */
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-flow {
+  background-size: 200% 200%;
+  animation: flow 3s ease infinite;
+}
+
+/* Gentle pulse animation */
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
