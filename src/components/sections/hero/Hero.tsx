@@ -103,6 +103,9 @@ export function Hero() {
       >
         <ScrollIndicator targetId="services" />
       </motion.div>
+
+      {/* Horizon glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
     </section>
   )
 }

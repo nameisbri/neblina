@@ -8,8 +8,8 @@ export function Footer() {
 
   return (
     <footer className="relative w-full px-6 py-16 md:px-12 lg:px-24 overflow-hidden">
-      {/* Top border gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-fog-mid/30 to-transparent" />
+      {/* Horizon glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
 
       <div className="mx-auto max-w-6xl relative z-10">
         {/* Logo mark */}

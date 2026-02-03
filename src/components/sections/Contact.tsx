@@ -11,8 +11,8 @@ export function Contact() {
       <GlowOrb size="lg" color="blue" className="-left-32 top-1/4 opacity-20" />
       <GlowOrb size="md" color="purple" className="-right-20 bottom-1/4 opacity-15" />
 
-      {/* Top border gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-particle-glow/30 to-transparent" />
+      {/* Horizon glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
 
       <div className="max-w-2xl mx-auto relative z-10">
         <ScrollReveal>

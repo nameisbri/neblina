@@ -10,6 +10,9 @@ import { ProcessCard } from './ProcessCard'
 export function Projects() {
   return (
     <Section id="projects" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Horizon glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
+
       {/* Background elements */}
       <GlowOrb size="xl" color="purple" className="-right-40 top-1/4 opacity-10" />
       <GlowOrb size="lg" color="blue" className="-left-32 bottom-1/3 opacity-10" />
@@ -23,7 +26,6 @@ export function Projects() {
           <p className="text-text-secondary mt-4 max-w-xl mx-auto">
             Select projects where clarity emerged.
           </p>
-          <div className="w-16 h-px mx-auto mt-6 bg-gradient-to-r from-transparent via-fog-mid to-transparent" />
         </div>
       </ScrollReveal>
 
@@ -45,7 +47,6 @@ export function Projects() {
           <h3 className="font-serif text-2xl lg:text-3xl text-text-secondary">
             Process & Innovation
           </h3>
-          <div className="w-12 h-px mx-auto mt-4 bg-gradient-to-r from-transparent via-fog-mid to-transparent" />
         </div>
       </ScrollReveal>
       <ProcessCard project={processProject} />
