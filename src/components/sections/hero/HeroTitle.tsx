@@ -1,16 +1,9 @@
 'use client'
 
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useSpring, useTransform } from 'framer-motion'
 import { useMousePosition, useReducedMotion } from '@/hooks'
-import { DURATION, EASING, ENTRANCE } from '@/lib/constants'
-
-interface HeroTitleProps {
-  /** Whether the entrance animation has started */
-  entranceStarted?: boolean
-  /** Delay before title starts animating (ms) */
-  delay?: number
-}
+import { EASING, ENTRANCE } from '@/lib/constants'
 
 /**
  * Enhanced Hero title with:
@@ -18,17 +11,13 @@ interface HeroTitleProps {
  * - Letter-by-letter reveal with blur-to-sharp transition
  * - Subtle floating animation after reveal
  */
-export function HeroTitle({
-  entranceStarted = true,
-  delay = ENTRANCE.titleDelay,
-}: HeroTitleProps) {
+export function HeroTitle() {
+  const delay = ENTRANCE.titleDelay
   const mousePosition = useMousePosition()
   const reducedMotion = useReducedMotion()
-  const [isClient, setIsClient] = useState(false)
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 })
 
   useEffect(() => {
-    setIsClient(true)
     setWindowSize({ width: window.innerWidth, height: window.innerHeight })
 
     const handleResize = () => {
@@ -124,23 +113,12 @@ export function HeroTitle({
     },
   }
 
-  if (!isClient) {
-    // SSR fallback
-    return (
-      <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight">
-        <span className="bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent">
-          {words.join(' ')}
-        </span>
-      </h1>
-    )
-  }
-
   return (
     <motion.h1
       className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight"
       variants={containerVariants}
-      initial="hidden"
-      animate={entranceStarted ? 'visible' : 'hidden'}
+      initial={false}
+      animate="visible"
     >
       <motion.span
         className="inline-flex flex-wrap justify-center gap-x-4"
@@ -152,6 +130,8 @@ export function HeroTitle({
             key={i}
             custom={i}
             variants={wordVariants}
+            initial={false}
+            animate="visible"
             className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
             style={{
               textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,

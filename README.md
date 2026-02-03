@@ -20,7 +20,7 @@ The site uses a "Blue Hour" visual language—the liminal moment between night a
 - Subtle motion and particle effects that respect `prefers-reduced-motion`
 - Custom cursor interactions on desktop
 
-See [STYLE_GUIDE.md](./STYLE_GUIDE.md) for the complete visual identity reference.
+See [STYLE_GUIDE.md](./STYLE_GUIDE.md) for the complete visual identity reference, or view the [interactive style guide](https://claude.ai/public/artifacts/049e3ed0-3471-4705-a616-fdb98caa038f).
 
 ## Development
 

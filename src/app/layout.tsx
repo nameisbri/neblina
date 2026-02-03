@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://neblina.ca'),
+  metadataBase: new URL('https://neblina.tech'),
   title: 'Neblina — Where Clarity Emerges',
   description:
     "A digital product studio based in Ontario, Canada. Strategy, design, and digital products for brands navigating what's next.",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    url: 'https://neblina.ca',
+    url: 'https://neblina.tech',
     title: 'Neblina — Where Clarity Emerges',
     description:
       "Strategy, design, and digital products for brands navigating what's next.",
