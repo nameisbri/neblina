@@ -32,7 +32,6 @@ export function Moon() {
         top: '10%',
         right: '15%',
         transform: `translateY(${translateY}px)`,
-        willChange: reducedMotion ? 'auto' : 'transform',
       }}
       aria-hidden="true"
     >

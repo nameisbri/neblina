@@ -82,7 +82,6 @@ export function FogLayer({
         transform: `translateY(${translateY}px)`,
         opacity: effectiveOpacity,
         filter: blur > 0 ? `blur(${blur}px)` : undefined,
-        willChange: reducedMotion ? 'auto' : 'transform, opacity',
         transition: 'opacity 1s ease-out',
       }}
     >

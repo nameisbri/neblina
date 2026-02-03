@@ -92,13 +92,11 @@ export const ENTRANCE = {
 
 // Fog system configuration
 export const FOG_CONFIG = {
-  /** Layer configurations for 5-layer system */
+  /** Layer configurations for 3-layer system (reduced for performance) */
   layers: [
-    { speed: 0.3, opacity: 0.15, blur: 40 },  // Very far - subtle depth
-    { speed: 0.5, opacity: 0.25, blur: 25 },  // Far background
-    { speed: 1.0, opacity: 0.35, blur: 15 },  // Middle ground
-    { speed: 1.5, opacity: 0.25, blur: 8 },   // Near
-    { speed: 2.0, opacity: 0.15, blur: 3 },   // Very close - wisps
+    { speed: 0.5, opacity: 0.3, blur: 25 },   // Background
+    { speed: 1.0, opacity: 0.4, blur: 12 },   // Middle ground
+    { speed: 1.5, opacity: 0.25, blur: 5 },   // Near
   ],
   /** Entrance mode starts with dense fog */
   entranceDensity: 1.5,
@@ -114,11 +112,11 @@ export const SERVICE_COLORS = {
   web: { primary: '#06b6d4', glow: 'rgba(6, 182, 212, 0.3)' },
 } as const
 
-// Particle counts by device capability tier
+// Particle counts by device capability tier (reduced for performance)
 export const PARTICLE_COUNTS = {
-  high: { stars: 100, dust: 50, glow: 20 },
-  medium: { stars: 60, dust: 30, glow: 12 },
-  low: { stars: 30, dust: 15, glow: 6 },
+  high: { stars: 60, dust: 30, glow: 12 },
+  medium: { stars: 40, dust: 20, glow: 8 },
+  low: { stars: 20, dust: 10, glow: 4 },
 } as const
 
 // Cursor configuration
@@ -128,9 +126,9 @@ export const CURSOR_CONFIG = {
   /** Expanded size on hover */
   hoverSize: 30,
   /** Smoothing factor (higher = more responsive, lower = smoother) */
-  smoothing: 0.35,
-  /** Trail particle count */
-  trailLength: 3,
+  smoothing: 0.6,
+  /** Trail particle count (0 = disabled for performance) */
+  trailLength: 0,
   /** Magnetic pull radius */
   magnetRadius: 80,
 } as const

@@ -18,14 +18,13 @@ interface FogSystemProps {
 /**
  * Orchestrates multiple fog layers to create an immersive atmospheric effect.
  *
- * Enhanced 5-layer system with entrance mode for dramatic hero reveals:
+ * 3-layer system optimized for performance with entrance mode:
  *
- * 1. Very far layer (0.3x speed): Subtle depth, heaviest blur
- * 2. Background layer (0.5x speed): Main atmosphere
- * 3. Midground layer (1.0x speed): Neutral, medium blur
- * 4. Foreground layer (1.5x speed): Closer wisps
- * 5. Very close layer (2.0x speed): Fine detail, light blur
+ * 1. Background layer (0.5x speed): Main atmosphere
+ * 2. Midground layer (1.0x speed): Neutral, medium blur
+ * 3. Near layer (1.5x speed): Closer wisps
  *
+ * Mobile uses 2 layers for better performance.
  * Entrance mode starts with 150% density fog that clears over 3 seconds.
  */
 export function FogSystem({
@@ -96,14 +95,13 @@ export function FogSystem({
   // Determine which layers to render based on device
   const layersToRender = useMemo(() => {
     if (isMobile) {
-      // Mobile: 3 layers for performance
+      // Mobile: 2 layers for better performance
       return [
-        FOG_CONFIG.layers[1], // Background
-        FOG_CONFIG.layers[2], // Midground
-        FOG_CONFIG.layers[3], // Near
+        FOG_CONFIG.layers[0], // Background
+        FOG_CONFIG.layers[1], // Midground
       ]
     }
-    // Desktop: all 5 layers
+    // Desktop: all 3 layers
     return FOG_CONFIG.layers
   }, [isMobile])
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useReducedMotion } from '@/hooks'
 import { ScrollIndicator } from '@/components/ui'
@@ -19,6 +19,15 @@ export function Hero() {
   const handleEntranceComplete = useCallback(() => {
     setEntranceComplete(true)
   }, [])
+
+  // Safety timeout: ensure content is visible even if animations fail
+  useEffect(() => {
+    if (entranceComplete) return
+    const safetyTimeout = setTimeout(() => {
+      setEntranceComplete(true)
+    }, 2000)
+    return () => clearTimeout(safetyTimeout)
+  }, [entranceComplete])
 
   const contentVariants = {
     hidden: { opacity: 0 },
