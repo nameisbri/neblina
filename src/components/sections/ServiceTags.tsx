@@ -3,13 +3,9 @@
 import { motion } from 'framer-motion'
 import { ScrollReveal } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
+import { SERVICES } from '@/data/services'
 
-// Curated selection representing breadth of services
-const services = [
-  { label: 'Product design', href: '#services' },
-  { label: 'Web design', href: '#services' },
-  { label: 'Mobile development', href: '#services' },
-]
+const services = SERVICES.map((s) => ({ label: s.title, href: '#services' }))
 
 export function ServiceTags() {
   const reducedMotion = useReducedMotion()
