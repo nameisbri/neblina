@@ -22,7 +22,7 @@ export function ServiceTags() {
   }
 
   return (
-    <div className="py-12 lg:py-16">
+    <div className="py-6 lg:py-8">
       <ScrollReveal delay={0.1}>
         <nav
           className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 px-6"
@@ -33,7 +33,7 @@ export function ServiceTags() {
               <motion.a
                 href={service.href}
                 onClick={(e) => handleClick(e, service.href)}
-                className="text-xs uppercase tracking-widest text-text-secondary/80 hover:text-particle-glow transition-colors duration-300 px-2 py-1"
+                className="text-sm uppercase tracking-widest text-text-secondary/80 hover:text-particle-glow transition-colors duration-300 px-2 py-1"
                 whileHover={
                   reducedMotion
                     ? {}
@@ -48,7 +48,7 @@ export function ServiceTags() {
 
               {index < services.length - 1 && (
                 <span
-                  className="text-fog-mid/50 text-xs ml-3"
+                  className="text-fog-mid/50 text-sm ml-3"
                   aria-hidden="true"
                 >
                   ·
