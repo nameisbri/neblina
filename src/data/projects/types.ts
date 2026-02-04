@@ -56,9 +56,9 @@ export interface FlagshipProject extends BaseProject {
   type: 'flagship'
   projectType: string
   tagline: string
-  features: ProjectFeature[]
-  techStack: TechStackItem[]
-  whyItMatters: string
+  features?: ProjectFeature[]
+  techStack?: TechStackItem[]
+  whyItMatters?: string
   links?: ProjectLink[]
   screenshots?: ProjectScreenshot[]
 }
@@ -67,10 +67,11 @@ export interface FlagshipProject extends BaseProject {
 export interface StandardProject extends BaseProject {
   type: 'standard'
   projectType: string
+  tagline?: string
   client?: string
-  features: string[]
-  techStack: TechStackItem[]
-  whyItMatters: string
+  features?: string[]
+  techStack?: TechStackItem[]
+  whyItMatters?: string
   links?: ProjectLink[]
 }
 
