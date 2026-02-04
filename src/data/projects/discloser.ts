@@ -4,11 +4,11 @@ export const discloserProject: FlagshipProject = {
   type: 'flagship',
   id: 'discloser',
   title: 'Discloser',
-  subtitle: 'Flagship Product',
-  projectType: 'Privacy-first iOS mobile app',
+  subtitle: 'Product design, Mobile development',
+  projectType: 'Product design, Mobile development',
   tagline: 'Share your status. Protect your identity.',
   description:
-    'A privacy-first app for anonymous sharing of STI test results, empowering people to share their health status without exposing their identity.',
+    'A privacy-first iOS app that makes sharing health information feel safe, simple, and stigma-free.',
   status: 'beta',
   statusLabel: 'Build 17 — TestFlight Prep',
   features: [

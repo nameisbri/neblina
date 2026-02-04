@@ -5,26 +5,37 @@ import { Section } from '@/components/layout'
 import { ScrollReveal, GlowOrb } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
 
-const consultingServices = [
-  'Brand strategy',
-  'Product design',
-  'Creative direction',
-  'Technical architecture',
+const services = [
+  {
+    title: 'Product design',
+    description:
+      'Interfaces shaped around how people actually think and move. Clear, intuitive, and built to support real behaviour.',
+  },
+  {
+    title: 'Web design',
+    description:
+      'Websites that feel like you. They work hard while looking effortless.',
+  },
+  {
+    title: 'Frontend development',
+    description:
+      'Clean code that performs beautifully across every device and context. Accessible, responsive, built to last.',
+  },
 ]
 
-function ServiceBlock({
+function ServiceCard({
   title,
-  children,
+  description,
   index,
 }: {
   title: string
-  children: React.ReactNode
+  description: string
   index: number
 }) {
   const reducedMotion = useReducedMotion()
 
   return (
-    <ScrollReveal delay={index * 0.15}>
+    <ScrollReveal delay={index * 0.1}>
       <motion.div
         className="group relative"
         whileHover={reducedMotion ? {} : { y: -4 }}
@@ -35,11 +46,13 @@ function ServiceBlock({
             {/* Accent glow */}
             <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-500 blur-3xl bg-particle-glow" />
 
-            <h3 className="font-serif text-3xl lg:text-4xl text-text-primary mb-6">
+            <h3 className="font-serif text-2xl lg:text-3xl text-text-primary mb-4">
               {title}
             </h3>
 
-            {children}
+            <p className="text-text-secondary leading-relaxed">
+              {description}
+            </p>
           </div>
         </div>
       </motion.div>
@@ -60,31 +73,20 @@ export function Services() {
       <ScrollReveal>
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary">
-            What emerges
+            Services
           </h2>
         </div>
       </ScrollReveal>
 
-      <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-        {/* Consulting Block */}
-        <ServiceBlock title="Clarity for others" index={0}>
-          <p className="text-text-secondary leading-relaxed mb-6">
-            Strategy and design partnerships for teams building with intention. We help you find the signal in the noise—then craft the path forward.
-          </p>
-          <p className="text-fog-mid text-sm">
-            {consultingServices.join(' · ')}
-          </p>
-        </ServiceBlock>
-
-        {/* Products Block */}
-        <ServiceBlock title="Clarity for ourselves" index={1}>
-          <p className="text-text-secondary leading-relaxed mb-6">
-            We develop our own software—tools for the conversations people struggle to have. Private by design. Built to earn trust.
-          </p>
-          <p className="text-fog-mid text-sm">
-            Currently building: <span className="text-text-secondary">Discloser</span>, a privacy-first app for sharing health information on your own terms.
-          </p>
-        </ServiceBlock>
+      <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {services.map((service, index) => (
+          <ServiceCard
+            key={service.title}
+            title={service.title}
+            description={service.description}
+            index={index}
+          />
+        ))}
       </div>
     </Section>
   )

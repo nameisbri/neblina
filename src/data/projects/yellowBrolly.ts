@@ -3,12 +3,12 @@ import type { StandardProject } from './types'
 export const yellowBrollyProject: StandardProject = {
   type: 'standard',
   id: 'yellow-brolly',
-  title: 'Yellow Brolly Co.',
-  subtitle: 'Client Project',
-  projectType: 'Modern consulting firm website',
-  client: 'Yellow Brolly Co.',
+  title: 'Yellow Brolly',
+  subtitle: 'Web design, Frontend development',
+  projectType: 'Web design, Frontend development',
+  client: 'Yellow Brolly',
   description:
-    'A sophisticated website for a technology consulting firm, featuring immersive 3D graphics, smooth scroll-driven animations, and a clear methodology showcase.',
+    'A refined digital presence for a technology strategy consultancy helping organizations adopt tools without losing their culture.',
   status: 'development',
   statusLabel: 'Homepage Complete',
   features: [

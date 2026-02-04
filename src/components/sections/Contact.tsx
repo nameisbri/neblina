@@ -18,10 +18,10 @@ export function Contact() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
-              Have something forming?
+              Have a project in mind?
             </h2>
             <p className="text-text-secondary text-lg max-w-lg mx-auto">
-              We work with a small number of partners at a time. If you&apos;re building something that requires care, we&apos;d like to hear about it.
+              We&apos;d love to hear about it.
             </p>
           </div>
         </ScrollReveal>

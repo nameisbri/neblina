@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib'
 
 const navLinks = [
-  { href: '#services', label: 'Services' },
   { href: '#projects', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -19,7 +20,7 @@ export function Header() {
       setIsScrolled(window.scrollY > 100)
 
       // Determine active section
-      const sections = ['services', 'projects', 'contact']
+      const sections = ['projects', 'services', 'about', 'contact']
       for (const section of sections.reverse()) {
         const element = document.getElementById(section)
         if (element) {

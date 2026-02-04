@@ -68,7 +68,8 @@ export function HeroTitle() {
     }
   )
 
-  const words = ['Where', 'clarity', 'emerges', 'from', 'the', 'fog.']
+  const brandName = 'Neblina'
+  const tagline = 'Clarity through craft'
 
   // Word animation variants
   const wordVariants = {
@@ -114,33 +115,39 @@ export function HeroTitle() {
   }
 
   return (
-    <motion.h1
-      className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight"
+    <motion.div
+      className="flex flex-col items-center"
       variants={containerVariants}
       initial={false}
       animate="visible"
     >
-      <motion.span
-        className="inline-flex flex-wrap justify-center gap-x-4"
+      <motion.h1
+        className="font-serif text-6xl md:text-7xl lg:text-8xl tracking-tight"
         animate={!reducedMotion ? 'float' : undefined}
         variants={floatVariants}
       >
-        {words.map((word, i) => (
-          <motion.span
-            key={i}
-            custom={i}
-            variants={wordVariants}
-            initial={false}
-            animate="visible"
-            className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
-            style={{
-              textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,
-            }}
-          >
-            {word}
-          </motion.span>
-        ))}
-      </motion.span>
-    </motion.h1>
+        <motion.span
+          custom={0}
+          variants={wordVariants}
+          initial={false}
+          animate="visible"
+          className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
+          style={{
+            textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,
+          }}
+        >
+          {brandName}
+        </motion.span>
+      </motion.h1>
+      <motion.p
+        custom={1}
+        variants={wordVariants}
+        initial={false}
+        animate="visible"
+        className="mt-4 text-xl md:text-2xl lg:text-3xl text-text-secondary font-light tracking-wide"
+      >
+        {tagline}
+      </motion.p>
+    </motion.div>
   )
 }

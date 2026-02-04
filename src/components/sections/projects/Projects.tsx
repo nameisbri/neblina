@@ -2,10 +2,9 @@
 
 import { Section } from '@/components/layout'
 import { ScrollReveal, GlowOrb } from '@/components/effects'
-import { flagshipProject, standardProjects, processProject, type StandardProject } from '@/data/projects'
+import { flagshipProject, standardProjects, type StandardProject } from '@/data/projects'
 import { FlagshipProjectCard } from './FlagshipProjectCard'
 import { StandardProjectCard } from './StandardProjectCard'
-import { ProcessCard } from './ProcessCard'
 
 export function Projects() {
   return (
@@ -21,11 +20,8 @@ export function Projects() {
       <ScrollReveal>
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary">
-            From fog to form
+            Selected work
           </h2>
-          <p className="text-text-secondary mt-4 max-w-xl mx-auto">
-            Select projects where clarity emerged.
-          </p>
         </div>
       </ScrollReveal>
 
@@ -35,21 +31,24 @@ export function Projects() {
       </div>
 
       {/* Standard Projects */}
-      <div className="space-y-16 lg:space-y-20 mb-20 lg:mb-24">
+      <div className="space-y-16 lg:space-y-20 mb-16 lg:mb-20">
         {standardProjects.map((project: StandardProject, index: number) => (
           <StandardProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
 
-      {/* Process & Innovation Section */}
+      {/* See all work link */}
       <ScrollReveal>
-        <div className="text-center mb-10">
-          <h3 className="font-serif text-2xl lg:text-3xl text-text-secondary">
-            Process & Innovation
-          </h3>
+        <div className="text-center">
+          <a
+            href="/work"
+            className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors duration-300 group"
+          >
+            <span>See all work</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </a>
         </div>
       </ScrollReveal>
-      <ProcessCard project={processProject} />
     </Section>
   )
 }

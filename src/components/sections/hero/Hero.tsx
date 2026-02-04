@@ -9,6 +9,7 @@ import { DURATION, EASING } from '@/lib/constants'
 import { HeroTitle } from './HeroTitle'
 import { HeroEntrance } from './HeroEntrance'
 import { BreathIndicator } from './BreathIndicator'
+import { PositioningLine } from './PositioningLine'
 
 export function Hero() {
   const reducedMotion = useReducedMotion()
@@ -44,26 +45,19 @@ export function Hero() {
             <HeroTitle />
           </div>
 
-          {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            initial={false}
-            animate="visible"
-            className="text-lg md:text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed mb-10"
-          >
-            Strategy, design, and digital products for brands navigating what&apos;s next.
-          </motion.p>
-
           {/* CTA */}
           <motion.a
             variants={itemVariants}
             initial={false}
             animate="visible"
-            href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm text-text-primary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:bg-fog-mid/10 transition-colors duration-300"
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 mt-10 text-sm text-text-primary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:bg-fog-mid/10 transition-colors duration-300"
           >
-            See the work
+            Let&apos;s talk
           </motion.a>
+
+          {/* Positioning line */}
+          <PositioningLine entranceComplete={entranceComplete} />
         </div>
       </HeroEntrance>
 
@@ -77,7 +71,7 @@ export function Hero() {
         transition={{ delay: reducedMotion ? 0 : 0.5, duration: 1 }}
         className="absolute bottom-12"
       >
-        <ScrollIndicator targetId="services" />
+        <ScrollIndicator targetId="about" />
       </motion.div>
 
       {/* Horizon glow */}
