@@ -4,10 +4,11 @@ import { motion } from 'framer-motion'
 import { ScrollReveal } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
 
+// Curated selection representing breadth of services
 const services = [
   { label: 'Product design', href: '#services' },
   { label: 'Web design', href: '#services' },
-  { label: 'Frontend development', href: '#services' },
+  { label: 'Mobile development', href: '#services' },
 ]
 
 export function ServiceTags() {
