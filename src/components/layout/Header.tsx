@@ -7,7 +7,6 @@ import { cn } from '@/lib'
 const navLinks = [
   { href: '#projects', label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -19,18 +18,23 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100)
 
-      // Determine active section
-      const sections = ['projects', 'services', 'about', 'contact']
-      for (const section of sections.reverse()) {
+      // Determine active section based on scroll position
+      // Sections in page order (top to bottom)
+      const sections = ['projects', 'services', 'contact']
+      let currentSection = ''
+
+      for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
-          if (rect.top <= 200) {
-            setActiveSection(section)
-            break
+          // Section is active if its top is at or above the middle of viewport
+          if (rect.top <= window.innerHeight / 2) {
+            currentSection = section
           }
         }
       }
+
+      setActiveSection(currentSection)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
