@@ -63,6 +63,7 @@ export function Header() {
       <AnimatePresence>
         {isScrolled && (
           <motion.nav
+            aria-label="Main navigation"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -73,7 +74,7 @@ export function Header() {
               <div className="flex items-center justify-between bg-deep-night/80 backdrop-blur-md border border-fog-mid/10 rounded-full px-6 py-3">
                 {/* Logo */}
                 <a
-                  href="#"
+                  href="/"
                   onClick={(e) => {
                     e.preventDefault()
                     window.scrollTo({ top: 0, behavior: 'smooth' })

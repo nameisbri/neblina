@@ -1,0 +1,21 @@
+{
+  "name": "Neblina Digital",
+  "short_name": "Neblina",
+  "description": "Digital product studio — strategy, design, and development",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0f0f1e",
+  "theme_color": "#0f0f1e",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

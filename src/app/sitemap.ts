@@ -1,12 +1,16 @@
 import type { MetadataRoute } from 'next'
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neblina.tech'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: 'https://neblina.tech',
-      lastModified: new Date(),
+      url: SITE_URL,
+      lastModified: '2026-02-05',
       changeFrequency: 'monthly',
       priority: 1,
     },
   ]
+
+  return staticPages
 }

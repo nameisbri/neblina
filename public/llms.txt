@@ -1,0 +1,30 @@
+# Neblina Digital Inc.
+
+> Neblina is a digital product studio based in Ontario, Canada. We help brands find clarity through product strategy, design, and privacy-first software development. Neblina means "mist" in Portuguese — representing the journey from uncertainty to clarity.
+
+## About
+- Founded by Gabriela Moreira, a product designer and software developer
+- Based in Ontario, Canada
+- Incorporated as Neblina Digital Inc.
+- Dual model: consulting services + proprietary products
+
+## Services
+- Product Strategy & Brand Consulting
+- Product Design & Creative Direction
+- Mobile App Development (React Native, Expo, iOS)
+- Technical Architecture & Implementation (Next.js, Supabase, TypeScript)
+- Privacy-First Software Design
+
+## Products
+- Discloser (https://discloser.app): A privacy-first iOS app for anonymous sharing of health test results. Features AI-powered document verification, QR code sharing, and secure result management.
+
+## Values
+- Privacy is a fundamental right, not a feature
+- Technology should empower people, not exploit them
+- Trust is earned through transparency and action
+- Intentional design over trend-chasing
+- Quality code that stands the test of time
+
+## Contact
+- Website: https://neblina.tech
+- Location: Ontario, Canada

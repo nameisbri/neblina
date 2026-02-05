@@ -1,6 +1,28 @@
+import dynamic from 'next/dynamic'
 import { Header, Footer } from '@/components/layout'
-import { FogSystem, ParticleCanvas, Moon, StarField, InteractiveFog } from '@/components/effects'
 import { Hero, Philosophy, ServiceTags, Services, Projects, Testimonial, Contact } from '@/components/sections'
+
+// Lazy-load visual effects — they don't contain content, only decoration
+const StarField = dynamic(
+  () => import('@/components/effects').then(m => ({ default: m.StarField })),
+  { ssr: false }
+)
+const FogSystem = dynamic(
+  () => import('@/components/effects').then(m => ({ default: m.FogSystem })),
+  { ssr: false }
+)
+const InteractiveFog = dynamic(
+  () => import('@/components/effects').then(m => ({ default: m.InteractiveFog })),
+  { ssr: false }
+)
+const ParticleCanvas = dynamic(
+  () => import('@/components/effects').then(m => ({ default: m.ParticleCanvas })),
+  { ssr: false }
+)
+const Moon = dynamic(
+  () => import('@/components/effects').then(m => ({ default: m.Moon })),
+  { ssr: false }
+)
 
 export default function Home() {
   return (

@@ -8,7 +8,7 @@ import { StandardProjectCard } from './StandardProjectCard'
 
 export function Projects() {
   return (
-    <Section id="projects" className="py-24 lg:py-32 relative overflow-hidden">
+    <Section id="projects" aria-labelledby="projects-heading" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Horizon glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
 
@@ -19,7 +19,7 @@ export function Projects() {
       {/* Header */}
       <ScrollReveal>
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary">
+          <h2 id="projects-heading" className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-primary">
             Selected work
           </h2>
         </div>

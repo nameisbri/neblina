@@ -34,7 +34,8 @@ export function Footer() {
           transition={{ duration: 0.6 }}
         >
           <a
-            href="#"
+            href="/"
+            aria-label="Return to top"
             onClick={(e) => {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -47,6 +48,7 @@ export function Footer() {
 
         {/* Navigation */}
         <motion.nav
+          aria-label="Footer navigation"
           className="flex justify-center gap-8 mb-8"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -5,7 +5,8 @@ import { ScrollReveal, GlowOrb } from '@/components/effects'
 
 export function Testimonial() {
   return (
-    <Section className="py-24 lg:py-32 relative overflow-hidden">
+    <Section id="testimonials" aria-labelledby="testimonial-heading" className="py-24 lg:py-32 relative overflow-hidden">
+      <h2 id="testimonial-heading" className="sr-only">Client Testimonial</h2>
       {/* Subtle background orb */}
       <GlowOrb
         size="lg"

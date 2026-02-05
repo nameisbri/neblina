@@ -1,0 +1,63 @@
+# Neblina Digital Inc. — Full Reference
+
+> A digital product studio based in Ontario, Canada specializing in product strategy, design, creative direction, and privacy-first software development.
+
+## Company Overview
+
+Neblina Digital Inc. is a digital product studio founded by Gabriela Moreira. The name "Neblina" comes from Portuguese, meaning "mist" — representing the studio's approach of helping clients navigate uncertainty until clarity emerges. The studio operates a dual business model: sustainable consulting work in strategy, design, and creative direction, combined with proprietary product development.
+
+## Consulting Services
+
+### Product Strategy & Brand Consulting
+Neblina helps teams define product direction, market positioning, and brand identity. The approach emphasizes intentional design over trend-chasing, with a focus on building with purpose.
+
+### Product Design & Creative Direction
+End-to-end product design including user experience research, interface design, and design systems. Neblina creates design systems that scale gracefully and respect users.
+
+### Software Development
+Full-stack development specializing in:
+- Mobile applications using React Native and Expo
+- Web applications using Next.js and TypeScript
+- Backend services with Supabase
+- Privacy-first technical architecture
+
+### Technical Architecture
+System design and technical strategy for teams that need scalable, maintainable infrastructure. Emphasis on modern tooling, developer experience, and long-term maintainability.
+
+## Products
+
+### Discloser
+Website: https://discloser.app
+A privacy-first iOS app designed to make sharing health test results feel safe and stigma-free. Users can upload a document, verify results through AI-powered analysis, and share via a link or QR code. No accounts need to be exchanged. Key features include:
+- AI-powered document verification
+- QR code and link-based sharing
+- Secure result management
+- No identity exchange required
+- Built with React Native, Expo, and Supabase
+
+## Philosophy
+
+Neblina operates on core principles:
+1. Privacy is a fundamental right, not a feature
+2. Technology should empower people, not exploit them
+3. Trust is earned through transparency and action
+4. Intentional design over trend-chasing
+5. Quality code that stands the test of time
+6. Collaboration built on honest communication
+7. Products that respect users
+8. Architecture that scales gracefully
+9. Partnership that extends beyond launch
+
+## Technical Expertise
+- React Native / Expo (mobile)
+- Next.js / TypeScript (web)
+- Supabase (backend)
+- Tailwind CSS (styling)
+- Framer Motion (animation)
+- GSAP / Three.js (creative effects)
+- Privacy-first architecture patterns
+
+## Location & Contact
+- Region: Ontario, Canada
+- Website: https://neblina.tech
+- Discloser: https://discloser.app

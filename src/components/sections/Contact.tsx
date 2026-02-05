@@ -6,7 +6,7 @@ import { ScrollReveal, GlowOrb } from '@/components/effects'
 
 export function Contact() {
   return (
-    <Section id="contact" className="py-32 relative overflow-hidden">
+    <Section id="contact" aria-labelledby="contact-heading" className="py-32 relative overflow-hidden">
       {/* Background elements */}
       <GlowOrb size="lg" color="blue" className="-left-32 top-1/4 opacity-20" />
       <GlowOrb size="md" color="purple" className="-right-20 bottom-1/4 opacity-15" />
@@ -17,7 +17,7 @@ export function Contact() {
       <div className="max-w-2xl mx-auto relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
+            <h2 id="contact-heading" className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
               Have a project in mind?
             </h2>
             <p className="text-text-secondary text-lg max-w-lg mx-auto">

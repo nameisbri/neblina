@@ -8,6 +8,8 @@ interface SectionProps {
   id?: string
   /** Additional CSS classes to apply */
   className?: string
+  /** Associates section with its heading for accessibility */
+  'aria-labelledby'?: string
   /** Section content */
   children: React.ReactNode
 }
@@ -31,10 +33,11 @@ interface SectionProps {
  *   <p>Content goes here...</p>
  * </Section>
  */
-export function Section({ id, className, children }: SectionProps) {
+export function Section({ id, className, 'aria-labelledby': ariaLabelledBy, children }: SectionProps) {
   return (
     <section
       id={id}
+      aria-labelledby={ariaLabelledBy}
       className={cn(
         'relative w-full px-6 py-24 md:px-12 lg:px-24',
         className

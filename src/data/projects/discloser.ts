@@ -19,19 +19,19 @@ export const discloserProject: FlagshipProject = {
   screenshots: [
     {
       src: '/projects/discloser/screenshot-1.png',
-      alt: 'Discloser app dashboard',
+      alt: 'Discloser app dashboard showing health test results overview with verification status indicators',
     },
     {
       src: '/projects/discloser/screenshot-2.png',
-      alt: 'Discloser app sharing',
+      alt: 'Discloser sharing screen with QR code generation for anonymous health status sharing',
     },
     {
       src: '/projects/discloser/screenshot-3.png',
-      alt: 'Discloser app results',
+      alt: 'Discloser test results detail view showing individual STI test outcomes',
     },
     {
       src: '/projects/discloser/screenshot-4.png',
-      alt: 'Discloser app profile',
+      alt: 'Discloser user profile settings for managing privacy and sharing preferences',
     },
   ],
 }
