@@ -2,7 +2,7 @@
 
 The website for **Neblina**, a digital product studio based in Ontario, Canada. We help brands find clarity through strategy, design, and thoughtfully-built digital products.
 
-**Live:** [neblina.ca](https://neblina.ca)
+**Live:** [neblina.tech](https://neblina.tech)
 
 ## About
 
