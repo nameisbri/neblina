@@ -8,11 +8,6 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ]
 
-const socialLinks = [
-  { href: 'https://linkedin.com/company/neblina', label: 'LinkedIn' },
-  { href: 'https://github.com/neblina-labs', label: 'GitHub' },
-]
-
 export function Footer() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -30,9 +25,9 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
 
       <div className="mx-auto max-w-6xl relative z-10">
-        {/* Brand */}
+        {/* Circled N logo */}
         <motion.div
-          className="text-center mb-8"
+          className="text-center mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -44,9 +39,9 @@ export function Footer() {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="font-serif text-2xl text-text-primary hover:text-white transition-colors"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-text-secondary/30 hover:border-text-secondary/60 transition-colors"
           >
-            Neblina
+            <span className="font-serif text-2xl text-text-secondary">N</span>
           </a>
         </motion.div>
 
@@ -56,7 +51,7 @@ export function Footer() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
         >
           {navLinks.map((link) => (
             <a
@@ -69,27 +64,6 @@ export function Footer() {
             </a>
           ))}
         </motion.nav>
-
-        {/* Social links */}
-        <motion.div
-          className="flex justify-center gap-6 mb-8"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          {socialLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-fog-mid hover:text-text-secondary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
 
         {/* Legal */}
         <motion.div
