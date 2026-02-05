@@ -41,16 +41,19 @@ export async function sendContactMessage(data: ContactFormRequest): Promise<Cont
   }
 
   // Build Web3Forms payload
+  // Note: Web3Forms sends to the email registered with your access key
   const payload = {
     access_key: accessKey,
     subject: `New Contact Form Submission - Neblina`,
     from_name: 'Neblina Contact Form',
-    to: recipient,
     name: data.name,
     email: data.email,
     message: data.message,
     replyto: data.email,
   };
+
+  // Log for debugging (remove in production)
+  console.log('[ContactService] Sending to Web3Forms...');
 
   // Create abort controller for timeout
   const controller = new AbortController();
@@ -69,7 +72,20 @@ export async function sendContactMessage(data: ContactFormRequest): Promise<Cont
 
     clearTimeout(timeoutId);
 
+    // Check if response is JSON
+    const contentType = response.headers.get('content-type');
+    if (!contentType?.includes('application/json')) {
+      const text = await response.text();
+      console.error('[ContactService] Non-JSON response:', text.substring(0, 200));
+      return {
+        success: false,
+        code: ErrorCodes.SERVICE_UNAVAILABLE,
+        message: 'Invalid response from email service',
+      };
+    }
+
     const result = await response.json();
+    console.log('[ContactService] Web3Forms response:', result);
 
     if (result.success) {
       return { success: true };
