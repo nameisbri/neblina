@@ -3,7 +3,6 @@
 import { useState, FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Input, Textarea, Button } from '@/components/ui'
-import type { ContactFormResponse, ValidationError } from '@/lib/api/contact'
 
 /**
  * Form data structure for contact submissions.
@@ -24,17 +23,10 @@ interface FormErrors {
 }
 
 /**
- * Convert server validation errors to form errors
+ * Web3Forms API URL and access key
  */
-function mapServerErrors(details: ValidationError[]): FormErrors {
-  const formErrors: FormErrors = {}
-  for (const error of details) {
-    if (error.field === 'name' || error.field === 'email' || error.field === 'message') {
-      formErrors[error.field] = error.message
-    }
-  }
-  return formErrors
-}
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit'
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
 
 /**
  * Email validation regex pattern.
@@ -93,7 +85,7 @@ export function ContactForm() {
   }
 
   /**
-   * Handles form submission with validation and API call.
+   * Handles form submission with validation and Web3Forms API call.
    */
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -101,16 +93,32 @@ export function ContactForm() {
 
     if (!validate()) return
 
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setApiError('Contact form is not configured. Please try again later.')
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(WEB3FORMS_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'New Contact Form Submission - Neblina',
+          from_name: 'Neblina Contact Form',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          replyto: formData.email,
+        }),
       })
 
-      const result: ContactFormResponse = await response.json()
+      const result = await response.json()
 
       if (result.success) {
         setIsSuccess(true)
@@ -118,17 +126,8 @@ export function ContactForm() {
         return
       }
 
-      // Handle error response
-      if (response.status === 400 && result.error.details) {
-        // Validation errors - show under fields
-        setErrors(mapServerErrors(result.error.details))
-      } else if (response.status === 429) {
-        // Rate limit
-        setApiError('Too many requests. Please try again later.')
-      } else {
-        // Other errors (500, 503, etc.)
-        setApiError(result.error.message || 'Failed to send message. Please try again.')
-      }
+      // Web3Forms returned an error
+      setApiError(result.message || 'Failed to send message. Please try again.')
     } catch (error) {
       console.error('Form submission error:', error)
       setApiError('Unable to send message. Please check your connection and try again.')
