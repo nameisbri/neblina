@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Input, Textarea, Button } from '@/components/ui'
+import type { ContactFormResponse, ValidationError } from '@/lib/api/contact'
 
 /**
  * Form data structure for contact submissions.
@@ -20,6 +21,19 @@ interface FormErrors {
   name?: string
   email?: string
   message?: string
+}
+
+/**
+ * Convert server validation errors to form errors
+ */
+function mapServerErrors(details: ValidationError[]): FormErrors {
+  const formErrors: FormErrors = {}
+  for (const error of details) {
+    if (error.field === 'name' || error.field === 'email' || error.field === 'message') {
+      formErrors[error.field] = error.message
+    }
+  }
+  return formErrors
 }
 
 /**
@@ -49,6 +63,7 @@ export function ContactForm() {
     message: '',
   })
   const [errors, setErrors] = useState<FormErrors>({})
+  const [apiError, setApiError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -82,29 +97,41 @@ export function ContactForm() {
    */
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    setApiError(null)
 
     if (!validate()) return
 
     setIsSubmitting(true)
 
     try {
-      // Simulate API call - replace with Web3Forms integration
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
 
-      // Production integration example:
-      // const response = await fetch('https://api.web3forms.com/submit', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-      //     ...formData,
-      //   }),
-      // })
+      const result: ContactFormResponse = await response.json()
 
-      setIsSuccess(true)
-      setFormData({ name: '', email: '', message: '' })
+      if (result.success) {
+        setIsSuccess(true)
+        setFormData({ name: '', email: '', message: '' })
+        return
+      }
+
+      // Handle error response
+      if (response.status === 400 && result.error.details) {
+        // Validation errors - show under fields
+        setErrors(mapServerErrors(result.error.details))
+      } else if (response.status === 429) {
+        // Rate limit
+        setApiError('Too many requests. Please try again later.')
+      } else {
+        // Other errors (500, 503, etc.)
+        setApiError(result.error.message || 'Failed to send message. Please try again.')
+      }
     } catch (error) {
       console.error('Form submission error:', error)
+      setApiError('Unable to send message. Please check your connection and try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -122,6 +149,10 @@ export function ContactForm() {
     // Clear error when user starts typing in the field
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
+    // Clear API error when user makes changes
+    if (apiError) {
+      setApiError(null)
     }
   }
 
@@ -203,6 +234,15 @@ export function ContactForm() {
             rows={5}
             disabled={isSubmitting}
           />
+
+          {apiError && (
+            <div
+              className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
+              role="alert"
+            >
+              {apiError}
+            </div>
+          )}
 
           <Button
             type="submit"
