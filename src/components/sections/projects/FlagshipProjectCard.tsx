@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ScrollReveal } from '@/components/effects'
+import { ImageLightbox } from '@/components/ui/ImageLightbox'
 import { useReducedMotion } from '@/hooks'
 import type { FlagshipProject } from '@/data/projects'
 
@@ -12,6 +14,7 @@ interface FlagshipProjectCardProps {
 
 export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
   const reducedMotion = useReducedMotion()
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
     <ScrollReveal>
@@ -76,11 +79,12 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                 {project.screenshots.map((screenshot, index) => (
                   <motion.div
                     key={screenshot.src}
-                    className="relative group"
+                    className="relative group cursor-pointer"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     viewport={{ once: true }}
+                    onClick={() => setLightboxIndex(index)}
                   >
                     <div className="relative overflow-hidden rounded-xl border border-fog-mid/30 bg-fog-deep/50">
                       <Image
@@ -103,6 +107,14 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
           )}
         </motion.div>
       </div>
+
+      {lightboxIndex !== null && project.screenshots && (
+        <ImageLightbox
+          images={project.screenshots}
+          selectedIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </ScrollReveal>
   )
 }
