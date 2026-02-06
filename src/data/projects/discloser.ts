@@ -18,20 +18,31 @@ export const discloserProject: FlagshipProject = {
   },
   screenshots: [
     {
-      src: '/projects/discloser/screenshot-1.png',
-      alt: 'Discloser app dashboard showing health test results overview with verification status indicators',
+      src: '/projects/discloser/dashboard.png',
+      alt: 'Discloser app dashboard showing health test results overview with verification status and next checkup reminder',
     },
     {
-      src: '/projects/discloser/screenshot-2.png',
-      alt: 'Discloser sharing screen with QR code generation for anonymous health status sharing',
+      src: '/projects/discloser/upload.png',
+      alt: 'Discloser upload screen with Smart Scan for adding results via photo or PDF',
     },
     {
-      src: '/projects/discloser/screenshot-3.png',
-      alt: 'Discloser test results detail view showing individual STI test outcomes',
+      src: '/projects/discloser/results.png',
+      alt: 'Discloser verified test result detail view showing full STI panel breakdown from a recognized lab',
     },
     {
-      src: '/projects/discloser/screenshot-4.png',
-      alt: 'Discloser user profile settings for managing privacy and sharing preferences',
+      src: '/projects/discloser/share.png',
+      alt: 'Discloser share screen with auto-expiring links and QR code for anonymous sharing',
+    },
+    {
+      src: '/projects/discloser/status.png',
+      alt: 'Discloser private status sharing preview with encrypted results and hidden identity',
+    },
+  ],
+  links: [
+    {
+      label: 'Landing Page',
+      url: 'https://discloser.app',
+      type: 'external',
     },
   ],
 }
