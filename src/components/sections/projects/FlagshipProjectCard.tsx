@@ -46,14 +46,33 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
           </p>
 
           {/* Description */}
-          <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-3xl">
+          <p className="text-text-secondary text-lg leading-relaxed mb-6 max-w-3xl">
             {project.description}
           </p>
+
+          {/* Links */}
+          {project.links && project.links.length > 0 && (
+            <div className="flex flex-wrap gap-3 mb-10">
+              {project.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm transition-opacity duration-200 hover:opacity-70"
+                  style={{ color: project.theme.primary }}
+                >
+                  {link.label}
+                  <span className="text-xs">→</span>
+                </a>
+              ))}
+            </div>
+          )}
 
           {/* Screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
             <div className="mb-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 lg:gap-4">
                 {project.screenshots.map((screenshot, index) => (
                   <motion.div
                     key={screenshot.src}
@@ -80,25 +99,6 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                   </motion.div>
                 ))}
               </div>
-            </div>
-          )}
-
-          {/* Links */}
-          {project.links && project.links.length > 0 && (
-            <div className="flex flex-wrap gap-3">
-              {project.links.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: project.theme.primary }}
-                >
-                  {link.label}
-                  <span className="text-xs">→</span>
-                </a>
-              ))}
             </div>
           )}
         </motion.div>
