@@ -21,7 +21,7 @@ export function Contact() {
               Have a project in mind?
             </h2>
             <p className="text-text-secondary text-lg max-w-lg mx-auto">
-              We&apos;d love to hear about it.
+              Tell us about it.
             </p>
           </div>
         </ScrollReveal>

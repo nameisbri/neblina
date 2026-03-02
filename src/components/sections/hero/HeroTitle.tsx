@@ -139,7 +139,7 @@ export function HeroTitle() {
           {brandName}
         </motion.span>
         <span className="sr-only">
-          {' '}— Digital Product Studio in Ontario, Canada. Strategy, Design, and Privacy-First Development.
+          {' '}— Digital Product Studio. Strategy, Design, and Privacy-First Development.
         </span>
       </motion.h1>
       <motion.p

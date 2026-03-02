@@ -8,7 +8,7 @@ export const ggymStyleGuideProject: StandardProject = {
   projectType: 'Brand identity · Visual design',
   tagline: 'Strength training, made magical.',
   description:
-    'A comprehensive visual identity system for a fitness app. Playful typography, energetic colours, and a witchy-light aesthetic that makes workout tracking feel less like a chore.',
+    'Visual identity for a fitness app. Playful typography, energetic colours, and a witchy-light aesthetic that makes workout tracking feel less like a chore.',
   status: 'live',
   statusLabel: 'Complete',
   links: [

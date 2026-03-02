@@ -14,7 +14,7 @@ export function Philosophy() {
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
           <p className="font-serif font-light text-text-secondary text-xl md:text-2xl leading-relaxed text-center">
-            We design and build digital products that feel considered. Every detail serves a purpose. Whether you&apos;re starting fresh or evolving what you have, we&apos;ll help you create something you&apos;re proud of.
+            We design and build digital products where nothing is accidental. If you&apos;re starting something new or rethinking what you have, we&apos;ll help you get it right.
           </p>
         </ScrollReveal>
       </div>

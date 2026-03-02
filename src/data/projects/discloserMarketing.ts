@@ -7,7 +7,7 @@ export const discloserMarketingProject: StandardProject = {
   subtitle: 'Supporting Product',
   projectType: 'Next.js landing page with waitlist',
   description:
-    'The marketing website for Discloser, featuring animated visuals, waitlist functionality, and comprehensive analytics to drive early adoption.',
+    'The marketing site for Discloser. Animated visuals, a waitlist, and analytics hooked up to track what\u0027s working.',
   status: 'live',
   statusLabel: 'Live at discloser.app',
   features: [
@@ -26,7 +26,7 @@ export const discloserMarketingProject: StandardProject = {
     { name: 'Tally', category: 'service' },
   ],
   whyItMatters:
-    'Supports the flagship product launch with a polished web presence and data-driven user acquisition strategy.',
+    'Gets the word out for Discloser and collects early interest before the full launch.',
   links: [
     {
       label: 'Visit Site',

@@ -6,7 +6,7 @@ export const methodologyProject: ProcessProject = {
   title: 'AI-Assisted Development',
   subtitle: 'Process Innovation',
   description:
-    "A structured approach to AI-assisted development emphasizing fail-hard policies, comprehensive planning, and phase-based implementation — known internally as Alaina's Method.",
+    "How we work with AI without letting it run unsupervised. Fail-hard policies, planning before code, and human review at every step. We call it Alaina's Method.",
   status: 'evolving',
   statusLabel: 'Active & Evolving',
   principles: [

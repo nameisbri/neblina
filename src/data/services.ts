@@ -6,21 +6,21 @@ export const SERVICES: Service[] = [
     id: 'product-design',
     title: 'Product Design',
     description:
-      "Interfaces shaped around how people actually think and move. We design experiences that feel intuitive because they're built on real behaviour, not assumptions.",
+      "Interfaces shaped around how people actually think and move. We watch real behaviour and design from there, not from guesswork.",
     category: 'design',
   },
   {
     id: 'brand-visual-identity',
     title: 'Brand & Visual Identity',
     description:
-      'Visual systems that hold together. Typography, color, components—each choice supporting the next. Style guides that teams actually use.',
+      'Visual systems that hold together. Typography, color, and components that support each other. Style guides that teams actually use.',
     category: 'design',
   },
   {
     id: 'web-design',
     title: 'Web Design',
     description:
-      'Websites that feel like you. They work hard while looking effortless—responsive, performant, built to grow with your brand.',
+      'Websites that feel like you. Fast, responsive, and quietly built to grow with your brand.',
     category: 'design',
   },
   // Development Services
@@ -28,7 +28,7 @@ export const SERVICES: Service[] = [
     id: 'frontend-development',
     title: 'Frontend Development',
     description:
-      'Clean, performant code that works everywhere. React, Next.js, and modern tools used with intention. Accessible, responsive, built to last.',
+      'Code that works everywhere and ages well. React, Next.js, and whatever else the project actually needs. Accessible and responsive by default.',
     category: 'development',
   },
   {
@@ -42,7 +42,7 @@ export const SERVICES: Service[] = [
     id: 'full-stack-development',
     title: 'Full-Stack Development',
     description:
-      'Backend systems that support your vision. APIs, databases, authentication—the infrastructure that makes everything else possible. Built for scale and maintainability.',
+      'APIs, databases, authentication. The stuff behind the screen that makes everything else work. Built to scale without becoming a mess.',
     category: 'development',
   },
 ]

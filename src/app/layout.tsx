@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Neblina',
   },
   description:
-    'Neblina is a digital product studio based in Ontario, Canada. We help brands find clarity through product strategy, design, and privacy-first software development.',
+    'Neblina is a product studio that does strategy, design, and development for teams who care about privacy and getting the details right.',
   keywords: [
     'digital product studio',
     'product strategy',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'mobile app development',
     'React Native development',
     'privacy-first software',
-    'Ontario Canada',
+    'remote studio',
     'creative direction',
     'technical architecture',
   ],
@@ -46,18 +46,18 @@ export const metadata: Metadata = {
   publisher: 'Neblina Digital Inc.',
   openGraph: {
     type: 'website',
-    locale: 'en_CA',
+    locale: 'en',
     url: SITE_URL,
     title: 'Neblina — Digital Product Studio | Strategy, Design & Development',
     description:
-      'A digital product studio based in Ontario, Canada. Strategy, design, and privacy-first digital products for brands navigating what\'s next.',
+      'Product studio. We design and build privacy-first digital products.',
     siteName: 'Neblina',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Neblina — Digital Product Studio in Ontario, Canada',
+        alt: 'Neblina — Digital Product Studio',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Neblina — Digital Product Studio',
     description:
-      'Strategy, design, and privacy-first digital products. Based in Ontario, Canada.',
+      'Product studio. Strategy, design, and privacy-first development.',
     images: ['/og-image.png'],
   },
   robots: {

@@ -8,7 +8,7 @@ export const yellowBrollyProject: StandardProject = {
   projectType: 'Web design · Frontend development',
   tagline: 'Strategy that sticks.',
   description:
-    'A refined website for a technology consultancy that helps organizations adopt new tools without losing their culture. Clear navigation, considered motion, and a visual identity that reflects their thoughtful approach.',
+    'Website for a tech consultancy that helps organizations adopt new tools without losing their culture. The design needed to feel as deliberate as their work.',
   status: 'development',
   statusLabel: 'In Development',
   theme: {

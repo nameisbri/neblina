@@ -11,7 +11,7 @@ export function OrganizationJsonLd() {
     logo: `${SITE_URL}/logo.png`,
     image: `${SITE_URL}/og-image.png`,
     description:
-      'A digital product studio based in Ontario, Canada specializing in product strategy, design, creative direction, and privacy-first software development.',
+      'Product studio. Strategy, design, and privacy-first software development.',
     foundingDate: '2024',
     founder: {
       '@type': 'Person',
@@ -19,15 +19,10 @@ export function OrganizationJsonLd() {
       jobTitle: 'Founder & Product Designer',
       url: `${SITE_URL}/about`,
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressRegion: 'Ontario',
-      addressCountry: 'CA',
+    areaServed: {
+      '@type': 'Place',
+      name: 'Worldwide',
     },
-    areaServed: [
-      { '@type': 'Country', name: 'Canada' },
-      { '@type': 'Country', name: 'United States' },
-    ],
     knowsAbout: [
       'Product Strategy',
       'Product Design',
@@ -48,7 +43,7 @@ export function OrganizationJsonLd() {
             '@type': 'Service',
             name: 'Product Strategy & Brand Consulting',
             description:
-              'Brand strategy, product positioning, and creative direction for teams building with intention.',
+              'Brand strategy, product positioning, and creative direction.',
           },
         },
         {
@@ -89,7 +84,7 @@ export function WebSiteJsonLd() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: 'Neblina',
-    description: 'Digital product studio — strategy, design, and development.',
+    description: 'Product studio. Strategy, design, and development.',
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-CA',
   }

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Neblina — Digital Product Studio in Ontario, Canada'
+export const alt = 'Neblina — Digital Product Studio'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -66,7 +66,7 @@ export default async function Image() {
               margin: 0,
             }}
           >
-            Ontario, Canada
+            Clarity through craft
           </p>
         </div>
       </div>

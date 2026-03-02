@@ -187,7 +187,7 @@ export function ContactForm() {
             Message Sent
           </h3>
           <p className="text-text-secondary">
-            Thank you for reaching out. We&apos;ll be in touch soon.
+            Thanks. We&apos;ll get back to you soon.
           </p>
         </motion.div>
       ) : (
