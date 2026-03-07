@@ -21,8 +21,8 @@ export function Footer() {
 
   return (
     <footer className="relative w-full px-6 py-16 md:px-12 lg:px-24 overflow-hidden">
-      {/* Horizon glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
+      {/* Horizon line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-fog-mid/15" />
 
       <div className="mx-auto max-w-6xl relative z-10">
         {/* Circled N logo */}

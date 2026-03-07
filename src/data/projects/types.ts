@@ -73,6 +73,7 @@ export interface StandardProject extends BaseProject {
   techStack?: TechStackItem[]
   whyItMatters?: string
   links?: ProjectLink[]
+  screenshots?: ProjectScreenshot[]
 }
 
 /** Process/Methodology project */

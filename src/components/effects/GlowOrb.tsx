@@ -19,9 +19,9 @@ const sizes = {
 }
 
 const colors = {
-  blue: 'from-particle-glow/30 via-particle-glow/10 to-transparent',
-  purple: 'from-indigo-500/20 via-purple-500/10 to-transparent',
-  silver: 'from-fog-light/20 via-fog-light/5 to-transparent',
+  blue: 'from-fog-light/15 via-fog-light/5 to-transparent',
+  purple: 'from-fog-mid/15 via-fog-mid/5 to-transparent',
+  silver: 'from-fog-light/10 via-fog-light/3 to-transparent',
 }
 
 export function GlowOrb({ size = 'md', color = 'blue', className, delay = 0 }: GlowOrbProps) {

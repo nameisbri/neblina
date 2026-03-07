@@ -32,9 +32,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        'bg-particle-glow/20 text-text-primary border border-particle-glow/30 ' +
-        'hover:bg-particle-glow/30 hover:border-particle-glow/50 ' +
-        'hover:shadow-[0_0_30px_rgba(165,180,252,0.3)]',
+        'bg-particle-glow text-deep-night font-medium ' +
+        'hover:bg-cta-hover',
       secondary:
         'bg-fog-mid/20 text-text-primary border border-fog-mid/30 ' +
         'hover:bg-fog-mid/30 hover:border-fog-mid/50',

@@ -73,7 +73,7 @@ export function Moon() {
             width: '35px',
             height: '35px',
             // Use the same background as the night sky
-            background: '#0f0f1e',
+            background: '#0f0f12',
             top: '-5px',
             left: '10px',
           }}

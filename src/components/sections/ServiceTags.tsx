@@ -35,7 +35,7 @@ export function ServiceTags() {
                   reducedMotion
                     ? {}
                     : {
-                        textShadow: '0 0 20px rgba(165, 180, 252, 0.5)',
+                        textShadow: '0 0 20px rgba(201, 149, 107, 0.4)',
                       }
                 }
                 style={{ fontVariantCaps: 'all-small-caps' }}

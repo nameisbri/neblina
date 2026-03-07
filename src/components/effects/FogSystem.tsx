@@ -116,7 +116,7 @@ export function FogSystem({
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
-          background: 'linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 50%, #1a1a2e 100%)',
+          background: 'linear-gradient(180deg, #1a1a1e 0%, #0f0f12 50%, #1a1a1e 100%)',
         }}
         aria-hidden="true"
       />
@@ -129,7 +129,7 @@ export function FogSystem({
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%)',
+          background: 'linear-gradient(180deg, #0f0f12 0%, #1a1a1e 50%, #0f0f12 100%)',
         }}
         initial={entranceMode ? { opacity: 0.3 } : { opacity: 1 }}
         animate={{ opacity: 1 }}

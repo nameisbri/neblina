@@ -10,7 +10,7 @@ interface CategoryLabelProps {
 export function CategoryLabel({ label, delay = 0 }: CategoryLabelProps) {
   return (
     <ScrollReveal delay={delay}>
-      <h3 className="text-xs uppercase tracking-widest text-text-secondary/60 mb-6 font-normal">
+      <h3 className="text-sm uppercase tracking-[0.2em] text-particle-glow font-medium pt-2 pb-1">
         {label}
       </h3>
     </ScrollReveal>

@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    /* Blue Hour Palette CSS Custom Properties */
-    --color-deep-night: #0f0f1e;
-    --color-fog-deep: #1a1a2e;
-    --color-fog-mid: #374151;
-    --color-fog-light: #cbd5e1;
-    --color-particle-glow: #a5b4fc;
-    --color-text-primary: #f1f5f9;
-    --color-text-secondary: #94a3b8;
-    --color-cta-hover: #6366f1;
-    --color-focus-ring: #818cf8;
+    /* Warm mist palette */
+    --color-deep-night: #0f0f12;
+    --color-fog-deep: #1a1a1e;
+    --color-fog-mid: #50505a;
+    --color-fog-light: #b8b5ae;
+    --color-particle-glow: #c9956b;
+    --color-text-primary: #e6e2da;
+    --color-text-secondary: #8a8780;
+    --color-cta-hover: #d9a87d;
+    --color-focus-ring: #c9956b;
   }
 
   html {

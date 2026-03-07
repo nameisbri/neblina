@@ -57,13 +57,13 @@ export function HeroTitle() {
     [shadowX, shadowY],
     ([x, y]: number[]) => {
       if (reducedMotion) {
-        return '0 0 80px rgba(165, 180, 252, 0.5)'
+        return '0 0 80px rgba(200, 195, 185, 0.3)'
       }
       return `
-        ${x * 0.3}px ${y * 0.3}px 10px rgba(165, 180, 252, 0.4),
-        ${x * 0.6}px ${y * 0.6}px 30px rgba(165, 180, 252, 0.25),
-        ${x}px ${y}px 60px rgba(165, 180, 252, 0.15),
-        0 0 100px rgba(165, 180, 252, 0.3)
+        ${x * 0.3}px ${y * 0.3}px 10px rgba(200, 195, 185, 0.25),
+        ${x * 0.6}px ${y * 0.6}px 30px rgba(200, 195, 185, 0.15),
+        ${x}px ${y}px 60px rgba(200, 195, 185, 0.08),
+        0 0 100px rgba(200, 195, 185, 0.15)
       `
     }
   )
@@ -131,9 +131,9 @@ export function HeroTitle() {
           variants={wordVariants}
           initial={false}
           animate="visible"
-          className="inline-block bg-gradient-to-b from-white via-text-primary to-text-secondary bg-clip-text text-transparent"
+          className="inline-block text-text-primary"
           style={{
-            textShadow: reducedMotion ? '0 0 80px rgba(165, 180, 252, 0.5)' : textShadow,
+            textShadow: reducedMotion ? '0 0 80px rgba(200, 195, 185, 0.3)' : textShadow,
           }}
         >
           {brandName}

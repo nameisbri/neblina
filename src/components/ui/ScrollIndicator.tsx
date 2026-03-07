@@ -47,8 +47,8 @@ export function ScrollIndicator({ targetId = 'services' }: ScrollIndicatorProps)
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        animate={reducedMotion ? {} : { y: [0, 5, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        animate={reducedMotion ? {} : { opacity: [0.5, 1, 0.5] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
       >
         <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
       </motion.svg>

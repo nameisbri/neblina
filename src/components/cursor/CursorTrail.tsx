@@ -86,7 +86,7 @@ export function CursorTrail() {
               width: 8,
               height: 8,
               transform: 'translate(-50%, -50%)',
-              background: `radial-gradient(circle, rgba(165, 180, 252, ${particle.opacity}) 0%, transparent 70%)`,
+              background: `radial-gradient(circle, rgba(190, 188, 180, ${particle.opacity}) 0%, transparent 70%)`,
             }}
             initial={{ scale: particle.scale, opacity: particle.opacity }}
             animate={{

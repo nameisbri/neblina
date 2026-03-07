@@ -9,8 +9,21 @@ export const yellowBrollyProject: StandardProject = {
   tagline: 'Strategy that sticks.',
   description:
     'Website for a tech consultancy that helps organizations adopt new tools without losing their culture. The design needed to feel as deliberate as their work.',
-  status: 'development',
-  statusLabel: 'In Development',
+  status: 'live',
+  statusLabel: 'Live',
+  links: [
+    {
+      label: 'Visit site',
+      url: 'https://yellow-brolly.vercel.app',
+      type: 'external',
+    },
+  ],
+  screenshots: [
+    {
+      src: '/projects/yellow-brolly/hero.jpeg',
+      alt: 'Yellow Brolly homepage showing brand strategy and consulting services',
+    },
+  ],
   theme: {
     primary: '#eab308',
     secondary: '#f59e0b',

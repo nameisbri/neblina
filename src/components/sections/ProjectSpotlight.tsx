@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Section } from '@/components/layout'
 import { Button } from '@/components/ui'
-import { ScrollReveal, GlowOrb } from '@/components/effects'
+import { ScrollReveal } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
 
 export function ProjectSpotlight() {
@@ -11,14 +11,11 @@ export function ProjectSpotlight() {
 
   return (
     <Section id="project" className="py-32 relative overflow-hidden">
-      {/* Background elements */}
-      <GlowOrb size="xl" color="purple" className="-right-40 top-1/4 opacity-20" />
-
       {/* Decorative grid lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.02]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(165, 180, 252, 0.5) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(165, 180, 252, 0.5) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(180, 178, 170, 0.5) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(180, 178, 170, 0.5) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }} />
       </div>
@@ -74,7 +71,7 @@ export function ProjectSpotlight() {
               transition={{ duration: 0.5 }}
             >
               {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-particle-glow/20 via-transparent to-purple-500/20 blur-xl" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-particle-glow/10 via-transparent to-fog-mid/10 blur-xl" />
 
               {/* Main container */}
               <div className="relative h-full rounded-3xl bg-gradient-to-br from-fog-deep/80 to-deep-night border border-particle-glow/20 overflow-hidden">
@@ -92,9 +89,9 @@ export function ProjectSpotlight() {
                     className="w-24 h-24 rounded-2xl bg-gradient-to-br from-particle-glow/30 to-particle-glow/10 flex items-center justify-center"
                     animate={reducedMotion ? {} : {
                       boxShadow: [
-                        '0 0 20px rgba(165, 180, 252, 0.3)',
-                        '0 0 40px rgba(165, 180, 252, 0.5)',
-                        '0 0 20px rgba(165, 180, 252, 0.3)',
+                        '0 0 20px rgba(180, 178, 170, 0.3)',
+                        '0 0 40px rgba(180, 178, 170, 0.5)',
+                        '0 0 20px rgba(180, 178, 170, 0.3)',
                       ]
                     }}
                     transition={{ duration: 3, repeat: Infinity }}

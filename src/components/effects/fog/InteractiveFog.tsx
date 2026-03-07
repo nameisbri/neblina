@@ -100,9 +100,9 @@ export function InteractiveFog({
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 100% 80% at 30% 20%, rgba(26, 26, 56, 0.6) 0%, transparent 50%),
-            radial-gradient(ellipse 80% 100% at 70% 80%, rgba(45, 45, 75, 0.5) 0%, transparent 45%),
-            radial-gradient(ellipse 120% 60% at 50% 50%, rgba(35, 35, 65, 0.7) 0%, transparent 55%)
+            radial-gradient(ellipse 100% 80% at 30% 20%, rgba(26, 26, 30, 0.6) 0%, transparent 50%),
+            radial-gradient(ellipse 80% 100% at 70% 80%, rgba(40, 40, 45, 0.5) 0%, transparent 45%),
+            radial-gradient(ellipse 120% 60% at 50% 50%, rgba(30, 30, 35, 0.7) 0%, transparent 55%)
           `,
           maskImage: maskGradient,
           WebkitMaskImage: maskGradient,
@@ -117,7 +117,7 @@ export function InteractiveFog({
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
-          background: 'radial-gradient(circle, rgba(165, 180, 252, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(180, 178, 170, 0.08) 0%, transparent 70%)',
           opacity: isHovering ? 1 : 0,
           transition: 'opacity 0.3s ease-out',
         }}

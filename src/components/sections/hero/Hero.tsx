@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { useReducedMotion } from '@/hooks'
 import { ScrollIndicator } from '@/components/ui'
-import { GlowOrb } from '@/components/effects'
 import { DURATION, EASING } from '@/lib/constants'
 import { HeroTitle } from './HeroTitle'
 import { HeroEntrance } from './HeroEntrance'
@@ -33,11 +32,6 @@ export function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Decorative glow orbs */}
-      <GlowOrb size="xl" color="purple" className="-top-32 -left-32 opacity-50" delay={0.5} />
-      <GlowOrb size="lg" color="blue" className="top-1/4 -right-20 opacity-40" delay={0.8} />
-      <GlowOrb size="md" color="silver" className="bottom-1/4 left-1/4 opacity-30" delay={1.1} />
-
       <HeroEntrance onComplete={handleEntranceComplete}>
         <div className="relative z-10 max-w-5xl">
           {/* Animated title with 3D shadow */}
@@ -51,7 +45,7 @@ export function Hero() {
             initial={false}
             animate="visible"
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 mt-10 text-sm text-text-primary border border-fog-mid/30 rounded-full hover:border-particle-glow/50 hover:bg-fog-mid/10 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 mt-10 text-base font-medium text-deep-night bg-particle-glow rounded-full hover:bg-cta-hover transition-colors duration-300"
           >
             Let&apos;s talk
           </motion.a>
@@ -74,8 +68,8 @@ export function Hero() {
         <ScrollIndicator targetId="about" />
       </motion.div>
 
-      {/* Horizon glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
+      {/* Horizon line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-fog-mid/15" />
     </section>
   )
 }

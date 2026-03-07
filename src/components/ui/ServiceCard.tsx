@@ -27,7 +27,7 @@ export function ServiceCard({ title, description, className }: ServiceCardProps)
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(165, 180, 252, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(201, 149, 107, 0.08) 0%, transparent 70%)',
         }}
         aria-hidden="true"
       />

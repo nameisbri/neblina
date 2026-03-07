@@ -9,20 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Blue Hour Palette
-        'deep-night': '#0f0f1e',
-        'fog-deep': '#1a1a2e',
-        'fog-mid': '#374151',
-        'fog-light': '#cbd5e1',
-        // Accents
-        'particle-glow': '#a5b4fc',
-        'text-primary': '#f1f5f9',
-        'text-secondary': '#94a3b8',
-        'cta-hover': '#6366f1',
-        'focus-ring': '#818cf8',
+        // Warm mist palette
+        'deep-night': '#0f0f12',
+        'fog-deep': '#1a1a1e',
+        'fog-mid': '#50505a',
+        'fog-light': '#b8b5ae',
+        // Accents — morning light amber
+        'particle-glow': '#c9956b',
+        'text-primary': '#e6e2da',
+        'text-secondary': '#8a8780',
+        'cta-hover': '#d9a87d',
+        'focus-ring': '#c9956b',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
         serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       backgroundImage: {

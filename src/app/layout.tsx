@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Cormorant_Garamond } from 'next/font/google'
+import { DM_Sans, Cormorant_Garamond } from 'next/font/google'
 import { MotionProvider } from '@/contexts'
 import { CursorProvider, CustomCursor, CursorTrail } from '@/components/cursor'
 import { OrganizationJsonLd, WebSiteJsonLd, GoogleAnalytics } from '@/components/seo'
@@ -7,9 +7,9 @@ import './globals.css'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neblina.tech'
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
   display: 'swap',
 })
 
@@ -98,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-deep-night font-sans text-text-primary antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />

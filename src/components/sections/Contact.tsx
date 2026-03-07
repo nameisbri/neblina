@@ -2,17 +2,13 @@
 
 import { Section } from '@/components/layout'
 import { ContactForm } from '@/components/ui'
-import { ScrollReveal, GlowOrb } from '@/components/effects'
+import { ScrollReveal } from '@/components/effects'
 
 export function Contact() {
   return (
-    <Section id="contact" aria-labelledby="contact-heading" className="py-32 relative overflow-hidden">
-      {/* Background elements */}
-      <GlowOrb size="lg" color="blue" className="-left-32 top-1/4 opacity-20" />
-      <GlowOrb size="md" color="purple" className="-right-20 bottom-1/4 opacity-15" />
-
-      {/* Horizon glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-particle-glow/20 to-transparent blur-[1px]" />
+    <Section id="contact" aria-labelledby="contact-heading" className="py-32 relative">
+      {/* Horizon line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-fog-mid/15" />
 
       <div className="max-w-2xl mx-auto relative z-10">
         <ScrollReveal>
@@ -27,12 +23,8 @@ export function Contact() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="relative">
-            {/* Form container with subtle glow */}
-            <div className="absolute -inset-4 bg-gradient-to-b from-particle-glow/5 via-transparent to-transparent rounded-3xl blur-xl pointer-events-none" />
-            <div className="relative bg-fog-deep/30 backdrop-blur-sm border border-fog-mid/10 rounded-2xl p-8 md:p-10">
-              <ContactForm />
-            </div>
+          <div className="relative bg-fog-deep/40 border border-fog-mid/10 rounded-2xl p-8 md:p-10">
+            <ContactForm />
           </div>
         </ScrollReveal>
       </div>

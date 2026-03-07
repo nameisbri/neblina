@@ -64,7 +64,7 @@ export function CustomCursor() {
           <motion.div
             className="absolute inset-0 rounded-full"
             style={{
-              background: `radial-gradient(circle, rgba(165, 180, 252, 0.4) 0%, rgba(165, 180, 252, 0.1) 50%, transparent 70%)`,
+              background: `radial-gradient(circle, rgba(190, 188, 180, 0.4) 0%, rgba(190, 188, 180, 0.1) 50%, transparent 70%)`,
             }}
             animate={{
               scale: [1, 1.15, 1],
@@ -85,7 +85,7 @@ export function CustomCursor() {
               left: '15%',
               right: '15%',
               bottom: '15%',
-              background: `radial-gradient(circle, rgba(199, 210, 254, 0.6) 0%, rgba(165, 180, 252, 0.2) 60%, transparent 80%)`,
+              background: `radial-gradient(circle, rgba(200, 198, 190, 0.6) 0%, rgba(190, 188, 180, 0.2) 60%, transparent 80%)`,
             }}
           />
 
@@ -97,7 +97,7 @@ export function CustomCursor() {
               left: '35%',
               right: '35%',
               bottom: '35%',
-              background: `radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(224, 231, 255, 0.5) 50%, transparent 80%)`,
+              background: `radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(230, 226, 218, 0.5) 50%, transparent 80%)`,
             }}
             animate={
               mode === 'hover'

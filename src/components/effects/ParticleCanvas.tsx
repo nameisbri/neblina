@@ -83,10 +83,10 @@ export function ParticleCanvas() {
 
     // Outer ethereal glow - larger, softer
     const gradient = ctx.createRadialGradient(x, y, 0, x, y, size * 3)
-    gradient.addColorStop(0, `rgba(165, 180, 252, ${opacity * 0.8})`)
-    gradient.addColorStop(0.3, `rgba(165, 180, 252, ${opacity * 0.4})`)
-    gradient.addColorStop(0.6, `rgba(165, 180, 252, ${opacity * 0.1})`)
-    gradient.addColorStop(1, 'rgba(165, 180, 252, 0)')
+    gradient.addColorStop(0, `rgba(180, 185, 195, ${opacity * 0.8})`)
+    gradient.addColorStop(0.3, `rgba(180, 185, 195, ${opacity * 0.4})`)
+    gradient.addColorStop(0.6, `rgba(180, 185, 195, ${opacity * 0.1})`)
+    gradient.addColorStop(1, 'rgba(180, 185, 195, 0)')
 
     ctx.beginPath()
     ctx.arc(x, y, size * 3, 0, Math.PI * 2)
@@ -95,9 +95,9 @@ export function ParticleCanvas() {
 
     // Inner glow
     const innerGradient = ctx.createRadialGradient(x, y, 0, x, y, size)
-    innerGradient.addColorStop(0, `rgba(224, 242, 254, ${opacity})`)
-    innerGradient.addColorStop(0.5, `rgba(199, 210, 254, ${opacity * 0.5})`)
-    innerGradient.addColorStop(1, 'rgba(165, 180, 252, 0)')
+    innerGradient.addColorStop(0, `rgba(220, 218, 212, ${opacity})`)
+    innerGradient.addColorStop(0.5, `rgba(195, 195, 200, ${opacity * 0.5})`)
+    innerGradient.addColorStop(1, 'rgba(180, 185, 195, 0)')
 
     ctx.beginPath()
     ctx.arc(x, y, size, 0, Math.PI * 2)

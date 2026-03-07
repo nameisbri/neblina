@@ -8,7 +8,7 @@ interface ServiceGridProps {
 
 export function ServiceGrid({ services, indexOffset = 0 }: ServiceGridProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <div>
       {services.map((service, index) => (
         <ServiceCard key={service.id} service={service} index={index + indexOffset} />
       ))}

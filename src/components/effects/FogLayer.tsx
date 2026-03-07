@@ -21,19 +21,19 @@ interface FogLayerProps {
 // Gradient configurations for different variants
 const gradientVariants = {
   cool: {
-    color1: 'rgba(55, 65, 100, VAR)',   // Blueish gray
-    color2: 'rgba(45, 55, 90, VAR)',    // Deeper blue
-    color3: 'rgba(26, 26, 56, VAR)',    // Night blue
+    color1: 'rgba(50, 52, 58, VAR)',    // Steel gray
+    color2: 'rgba(42, 44, 50, VAR)',    // Deeper steel
+    color3: 'rgba(22, 22, 26, VAR)',    // Near-black
   },
   warm: {
-    color1: 'rgba(75, 65, 81, VAR)',    // Purple tint
-    color2: 'rgba(65, 55, 81, VAR)',    // Deeper purple
-    color3: 'rgba(36, 26, 46, VAR)',    // Night purple
+    color1: 'rgba(58, 52, 48, VAR)',    // Warm gray
+    color2: 'rgba(50, 45, 42, VAR)',    // Deeper warm
+    color3: 'rgba(28, 24, 22, VAR)',    // Warm night
   },
   neutral: {
-    color1: 'rgba(55, 65, 81, VAR)',    // Original gray
-    color2: 'rgba(55, 65, 81, VAR)',    // Same gray
-    color3: 'rgba(26, 26, 46, VAR)',    // Night
+    color1: 'rgba(50, 50, 55, VAR)',    // Neutral gray
+    color2: 'rgba(45, 45, 50, VAR)',    // Same gray
+    color3: 'rgba(24, 24, 28, VAR)',    // Night
   },
 }
 
