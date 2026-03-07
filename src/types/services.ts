@@ -1,5 +1,5 @@
 // Service category types
-export type ServiceCategory = 'design' | 'development'
+export type ServiceCategory = 'design' | 'development' | 'automation'
 
 // Individual service definition
 export interface Service {
