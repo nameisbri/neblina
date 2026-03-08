@@ -1,33 +1,68 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { Section } from '@/components/layout'
 import { ScrollReveal } from '@/components/effects'
-import { philosophy } from '@/data/philosophy'
-import { PhilosophyColumn } from './PhilosophyColumn'
+import { useReducedMotion } from '@/hooks'
+
+const principles = [
+  'Privacy as foundation, not feature',
+  'Intentional design over trend-chasing',
+  'Code that ages well',
+  'Honest communication throughout',
+  'Partnership beyond launch',
+]
 
 export function Philosophy() {
-  const columns = [philosophy.why, philosophy.how, philosophy.what]
+  const reducedMotion = useReducedMotion()
 
   return (
-    <Section id="about" aria-labelledby="philosophy-heading" className="pt-24 pb-12 lg:pt-32 lg:pb-16 relative">
+    <Section id="about" aria-labelledby="philosophy-heading" className="pt-24 pb-16 lg:pt-32 lg:pb-20 relative">
       <h2 id="philosophy-heading" className="sr-only">Our Philosophy</h2>
-      <div className="max-w-3xl mx-auto">
-        <ScrollReveal>
-          <p className="font-serif font-light text-text-secondary text-xl md:text-2xl leading-relaxed text-center">
-            We design and build digital products where nothing is accidental. If you&apos;re starting something new or rethinking what you have, we&apos;ll help you get it right.
-          </p>
-        </ScrollReveal>
-      </div>
-      <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-2">
-        {columns.map((col, i) => (
-          <PhilosophyColumn
-            key={col.title}
-            title={col.title}
-            subtitle={col.subtitle}
-            points={col.points}
-            index={i}
-          />
-        ))}
+
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-start">
+        {/* Left — manifesto statement */}
+        <div>
+          <ScrollReveal>
+            <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary leading-[1.2] mb-8">
+              In a world of surveillance capitalism and dark patterns, we choose a different path.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-xl">
+              We build technology that serves humans, not the other way around. That means starting from privacy, designing with intention, and writing code we&apos;d stake our name on. We don&apos;t ship and disappear — we stay.
+            </p>
+          </ScrollReveal>
+        </div>
+
+        {/* Right — condensed principles */}
+        <div className="lg:pt-4">
+          <ScrollReveal delay={0.15}>
+            <span className="text-text-secondary/60 text-xs tracking-[0.2em] uppercase block mb-6">
+              How we work
+            </span>
+          </ScrollReveal>
+
+          <ul className="space-y-0">
+            {principles.map((principle, i) => (
+              <motion.li
+                key={i}
+                className="py-3 border-b border-fog-mid/10 text-text-primary text-base lg:text-lg font-light"
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: reducedMotion ? 0 : 0.2 + i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {principle}
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Section>
   )
