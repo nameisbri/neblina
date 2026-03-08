@@ -69,7 +69,7 @@ export function HeroTitle() {
   )
 
   const brandName = 'Neblina'
-  const tagline = 'Clarity through craft'
+  const tagline = 'Strategy, design, and code. One team.'
 
   // Word animation variants
   const wordVariants = {
@@ -139,7 +139,7 @@ export function HeroTitle() {
           {brandName}
         </motion.span>
         <span className="sr-only">
-          {' '}— Digital Product Studio. Strategy, Design, and Privacy-First Development.
+          {' '}— Product studio. Strategy, design, and development.
         </span>
       </motion.h1>
       <motion.p

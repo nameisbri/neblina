@@ -11,7 +11,7 @@ export function OrganizationJsonLd() {
     logo: `${SITE_URL}/logo.png`,
     image: `${SITE_URL}/og-image.png`,
     description:
-      'Product studio. Strategy, design, and privacy-first software development.',
+      'Product studio. Strategy, design, and development that ships on time and scales.',
     foundingDate: '2024',
     founder: {
       '@type': 'Person',
@@ -29,7 +29,7 @@ export function OrganizationJsonLd() {
       'Creative Direction',
       'Mobile App Development',
       'React Native',
-      'Privacy-First Software',
+      'Full-Stack Development',
       'Technical Architecture',
     ],
     hasOfferCatalog: {
@@ -60,7 +60,7 @@ export function OrganizationJsonLd() {
             '@type': 'Service',
             name: 'Software Development',
             description:
-              'Mobile app development with React Native, web development with Next.js, and privacy-first technical architecture.',
+              'Mobile app development with React Native, web development with Next.js, and scalable technical architecture.',
           },
         },
       ],

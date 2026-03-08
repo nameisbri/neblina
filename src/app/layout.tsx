@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Neblina',
   },
   description:
-    'Neblina is a product studio that does strategy, design, and development for teams who care about privacy and getting the details right.',
+    'Neblina is a product studio. We handle strategy, design, and development so your product ships on time and keeps working as you grow.',
   keywords: [
     'digital product studio',
     'product strategy',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     'software development',
     'mobile app development',
     'React Native development',
-    'privacy-first software',
+    'scalable software',
     'remote studio',
     'creative direction',
     'technical architecture',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: 'Neblina — Product Studio | Strategy, Design & Development',
     description:
-      'Product studio. We design and build privacy-first digital products.',
+      'Product studio. Strategy, design, and development that ships and scales.',
     siteName: 'Neblina',
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Neblina — Digital Product Studio',
     description:
-      'Product studio. Strategy, design, and privacy-first development.',
+      'Product studio. Strategy, design, and development that ships and scales.',
     images: ['/og-image.png'],
   },
   robots: {

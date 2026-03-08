@@ -25,7 +25,7 @@ export function PositioningLine({ entranceComplete }: PositioningLineProps) {
       }}
       className="max-w-3xl mx-auto mt-10 text-center text-base md:text-lg text-text-secondary leading-relaxed"
     >
-      Working with founders, studios, and teams who care about getting the details right.
+      We work with founders and small teams who are building something they want to get right.
     </motion.p>
   )
 }

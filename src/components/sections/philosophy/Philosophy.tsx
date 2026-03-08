@@ -6,11 +6,11 @@ import { ScrollReveal } from '@/components/effects'
 import { useReducedMotion } from '@/hooks'
 
 const principles = [
-  'Privacy as foundation, not feature',
-  'Intentional design over trend-chasing',
-  'Code that ages well',
-  'Honest communication throughout',
-  'Partnership beyond launch',
+  'Products people actually want to use',
+  'Brands that hold up across every touchpoint',
+  'Code that scales without a rewrite',
+  'Automation that saves real hours',
+  'We stick around after launch',
 ]
 
 export function Philosophy() {
@@ -25,13 +25,13 @@ export function Philosophy() {
         <div>
           <ScrollReveal>
             <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary leading-[1.2] mb-8">
-              In a world of surveillance capitalism and dark patterns, we choose a different path.
+              You have the idea and the audience. We turn that into a product people reach for, a brand they remember, and systems that run without you babysitting them.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-xl">
-              We build technology that serves humans, not the other way around. That means starting from privacy, designing with intention, and writing code we&apos;d stake our name on. We don&apos;t ship and disappear — we stay.
+              We handle strategy, design, and development together so nothing gets lost between handoffs. The result is work that ships on time, grows with you, and doesn&apos;t fall apart when your traffic doubles.
             </p>
           </ScrollReveal>
         </div>
