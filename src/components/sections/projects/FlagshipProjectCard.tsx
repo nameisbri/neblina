@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ScrollReveal } from '@/components/effects'
 import { ImageLightbox } from '@/components/ui/ImageLightbox'
-import { DeviceFrame } from '@/components/ui/DeviceFrame'
 import type { FlagshipProject } from '@/data/projects'
 
 interface FlagshipProjectCardProps {
@@ -73,7 +72,7 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                   viewport={{ once: true }}
                   onClick={() => setLightboxIndex(index)}
                 >
-                  <DeviceFrame variant="phone">
+                  <div className="rounded-lg overflow-hidden border border-fog-mid/15">
                     <Image
                       src={screenshot.src}
                       alt={screenshot.alt}
@@ -81,7 +80,7 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                       height={440}
                       className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     />
-                  </DeviceFrame>
+                  </div>
                 </motion.div>
               ))}
 
@@ -98,7 +97,7 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                       viewport={{ once: true }}
                       onClick={() => setLightboxIndex(index)}
                     >
-                      <DeviceFrame variant="phone">
+                      <div className="rounded-lg overflow-hidden border border-fog-mid/15">
                         <Image
                           src={screenshot.src}
                           alt={screenshot.alt}
@@ -106,7 +105,7 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                           height={280}
                           className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                         />
-                      </DeviceFrame>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
