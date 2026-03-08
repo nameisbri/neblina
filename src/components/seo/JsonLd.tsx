@@ -17,7 +17,6 @@ export function OrganizationJsonLd() {
       '@type': 'Person',
       name: 'Gabriela Moreira',
       jobTitle: 'Founder & Product Designer',
-      url: `${SITE_URL}/about`,
     },
     areaServed: {
       '@type': 'Place',
@@ -66,7 +65,14 @@ export function OrganizationJsonLd() {
         },
       ],
     },
-    sameAs: [],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      url: `${SITE_URL}/#contact`,
+    },
+    sameAs: [
+      'https://github.com/nameisbri',
+    ],
   }
 
   return (

@@ -23,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Neblina — Digital Product Studio | Strategy, Design & Development',
+    default: 'Neblina — Product Studio | Strategy, Design & Development',
     template: '%s | Neblina',
   },
   description:
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en',
     url: SITE_URL,
-    title: 'Neblina — Digital Product Studio | Strategy, Design & Development',
+    title: 'Neblina — Product Studio | Strategy, Design & Development',
     description:
       'Product studio. We design and build privacy-first digital products.',
     siteName: 'Neblina',

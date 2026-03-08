@@ -57,6 +57,13 @@ Neblina operates on core principles:
 - GSAP / Three.js (creative effects)
 - Privacy-first architecture patterns
 
+## Links
+- [Home](https://neblina.tech): Neblina Digital product studio homepage
+- [Services](https://neblina.tech/#services): Product design, software development, and automation services
+- [Work](https://neblina.tech/#projects): Selected projects including Discloser, Yellow Brolly, and GGYM
+- [Contact](https://neblina.tech/#contact): Start a conversation about your project
+- [Discloser](https://discloser.app): Privacy-first health status sharing app
+
 ## Location & Contact
 - Region: Ontario, Canada
 - Website: https://neblina.tech

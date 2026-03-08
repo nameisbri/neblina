@@ -25,6 +25,12 @@
 - Intentional design over trend-chasing
 - Quality code that stands the test of time
 
+## Links
+- [Services](https://neblina.tech/#services): Product design, software development, and automation services
+- [Work](https://neblina.tech/#projects): Selected projects including Discloser, Yellow Brolly, and GGYM
+- [Contact](https://neblina.tech/#contact): Start a conversation about your project
+- [Discloser](https://discloser.app): Privacy-first health status sharing app
+
 ## Contact
 - Website: https://neblina.tech
 - Location: Ontario, Canada
