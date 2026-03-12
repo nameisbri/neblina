@@ -2,9 +2,10 @@
 
 import { Section } from '@/components/layout'
 import { ScrollReveal } from '@/components/effects'
-import { flagshipProject, standardProjects, type StandardProject } from '@/data/projects'
+import { flagshipProject, standardProjects, walkercraftProject, type StandardProject } from '@/data/projects'
 import { FlagshipProjectCard } from './FlagshipProjectCard'
 import { StandardProjectCard } from './StandardProjectCard'
+import { HighlightedProjectCard } from './HighlightedProjectCard'
 
 export function Projects() {
   return (
@@ -21,6 +22,9 @@ export function Projects() {
 
       {/* Flagship Project */}
       <FlagshipProjectCard project={flagshipProject} />
+
+      {/* Highlighted Project — Walkercraft (full-width, two-column) */}
+      <HighlightedProjectCard project={walkercraftProject} />
 
       {/* Standard Projects — side by side on desktop */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-8 lg:mt-12">

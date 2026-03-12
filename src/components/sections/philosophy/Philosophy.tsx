@@ -25,13 +25,13 @@ export function Philosophy() {
         <div>
           <ScrollReveal>
             <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary leading-[1.2] mb-8">
-              You have the idea and the audience. We turn that into a product people reach for, a brand they remember, and systems that run without you babysitting them.
+              You have the idea and the audience. We turn that into a product people reach for and a brand they remember. Then we set up the systems so it keeps running without you.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <p className="text-text-secondary text-base lg:text-lg leading-relaxed max-w-xl">
-              We handle strategy, design, and development together so nothing gets lost between handoffs. The result is work that ships on time, grows with you, and doesn&apos;t fall apart when your traffic doubles.
+              We handle strategy, design, and development in-house so nothing gets lost between handoffs. The result is work that ships on time and doesn&apos;t fall apart when your traffic doubles.
             </p>
           </ScrollReveal>
         </div>

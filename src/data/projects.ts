@@ -20,11 +20,13 @@ export { discloserProject } from './projects/discloser'
 export { yellowBrollyProject } from './projects/yellowBrolly'
 export { discloserMarketingProject } from './projects/discloserMarketing'
 export { methodologyProject } from './projects/methodology'
+export { walkercraftProject } from './projects/walkercraft'
 
 // Convenience exports
 export {
   flagshipProject,
   standardProjects,
+  highlightedProject,
   processProject,
   allProjects,
   getProjectById,

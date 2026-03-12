@@ -38,6 +38,7 @@ export interface ProjectScreenshot {
   src: string
   alt: string
   caption?: string
+  variant?: 'browser' | 'photo'
 }
 
 /** Base project interface with shared fields */

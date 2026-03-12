@@ -35,14 +35,14 @@ export const SERVICES: Service[] = [
     id: 'mobile-development',
     title: 'Mobile Development',
     description:
-      'iOS apps built with React Native that feel native. We handle the full cycle — concept through App Store — and bake privacy in from the start.',
+      'iOS apps that feel like they belong on your phone. We handle the full cycle from concept through the App Store, with privacy built in from day one.',
     category: 'development',
   },
   {
     id: 'full-stack-development',
     title: 'Full-Stack Development',
     description:
-      'APIs, databases, authentication — the stuff behind the screen that makes everything else work. We keep it clean so it doesn\'t fall apart at scale.',
+      'The backend plumbing that makes everything else work. Login systems, databases, server logic. We write it clean so you\'re not rewriting it in six months.',
     category: 'development',
   },
   // Automation Services
@@ -50,14 +50,14 @@ export const SERVICES: Service[] = [
     id: 'business-automation',
     title: 'Business Automation',
     description:
-      'Workflows that handle the repetitive stuff — lead scoring, customer follow-ups, reporting. Python scripts and API integrations that run on their own so your team doesn\'t have to.',
+      'Workflows that handle the repetitive stuff: lead scoring, customer follow-ups, reporting. Scripts and integrations that run on their own so your team doesn\'t have to.',
     category: 'automation',
   },
   {
     id: 'ai-integrations',
     title: 'AI Integrations',
     description:
-      'Connecting AI models to the tools you already use. Smart routing for support tickets, content drafts from your CMS data, summaries that actually save time. Practical uses, not gimmicks.',
+      'AI plugged into the tools you already use. Routing support tickets to the right person, drafting content from your existing data, summarizing threads so nobody has to. Practical stuff, not gimmicks.',
     category: 'automation',
   },
 ]
