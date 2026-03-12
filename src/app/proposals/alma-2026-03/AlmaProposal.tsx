@@ -47,34 +47,6 @@ function Tag({ children, color = C.green }: { children: React.ReactNode; color?:
   )
 }
 
-function Stat({ num, label, sub }: { num: string; label: string; sub?: string }) {
-  return (
-    <div className="stat-card">
-      <div
-        style={{
-          color: C.green,
-          fontSize: 28,
-          fontWeight: 700,
-          fontFamily: 'Georgia, serif',
-          lineHeight: 1,
-        }}
-      >
-        {num}
-      </div>
-      <div
-        className="body-font"
-        style={{ color: C.darkBrown, fontSize: 12, fontWeight: 600, marginTop: 6 }}
-      >
-        {label}
-      </div>
-      {sub && (
-        <div className="body-font" style={{ color: C.warmGray, fontSize: 11, marginTop: 2 }}>
-          {sub}
-        </div>
-      )}
-    </div>
-  )
-}
 
 export default function AlmaProposal() {
   const [active, setActive] = useState(0)
@@ -119,6 +91,8 @@ export default function AlmaProposal() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; cursor: default !important; }
         button, a, [role="button"] { cursor: pointer !important; }
+        .nav-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .nav-scroll::-webkit-scrollbar { display: none; }
         .body-font { font-family: 'DM Sans', sans-serif; }
         .nav-pill {
           padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 500;
@@ -137,18 +111,9 @@ export default function AlmaProposal() {
         .dark-card {
           background: ${C.darkBrown}; border-radius: 12px; padding: 24px;
         }
-        .stat-card {
-          background: white; border-radius: 10px; padding: 18px; text-align: center;
-          box-shadow: 0 1px 3px rgba(51,20,12,0.06);
-        }
         .segment-card {
           background: white; border-radius: 12px; overflow: hidden;
           box-shadow: 0 1px 3px rgba(51,20,12,0.06), 0 4px 12px rgba(51,20,12,0.04);
-        }
-        .flow-step { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; }
-        .flow-icon {
-          width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center;
-          justify-content: center; font-size: 20px; margin-bottom: 8px;
         }
         .metric-row {
           display: grid; grid-template-columns: 1.5fr 0.7fr 1fr 2fr; gap: 8px;
@@ -168,17 +133,12 @@ export default function AlmaProposal() {
         .section { max-width: 760px; margin: 0 auto; padding: 0 24px; }
         .insight-row { display: flex; gap: 8px; align-items: flex-start; padding: 8px 0; }
         .insight-dot { width: 6px; height: 6px; border-radius: 50%; background: ${C.lime}; flex-shrink: 0; margin-top: 7px; }
-        .arrow-sep { color: ${C.lime}; font-size: 18px; display: flex; align-items: center; padding: 0 4px; }
-
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
         .segment-stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
         .segment-stats-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .campaign-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
         .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .flow-container { display: flex; align-items: center; }
 
         @media (max-width: 640px) {
-          .stats-grid { grid-template-columns: 1fr 1fr; }
           .segment-stats-grid { grid-template-columns: 1fr; }
           .segment-stats-grid-2 { grid-template-columns: 1fr; }
           .campaign-grid { grid-template-columns: 1fr; }
@@ -186,11 +146,6 @@ export default function AlmaProposal() {
           .metric-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 16px; }
           .metric-row > div { text-align: left !important; }
           .metric-row > div:nth-child(2) { color: ${C.green}; font-weight: 700; }
-          .flow-container { flex-direction: column; gap: 12px; }
-          .flow-container > div { width: 100%; }
-          .flow-step { flex-direction: row; text-align: left; gap: 12px; }
-          .flow-icon { margin-bottom: 0; flex-shrink: 0; }
-          .arrow-sep { display: none; }
           h1 { font-size: 28px !important; }
           h2 { font-size: 24px !important; }
         }
@@ -216,16 +171,21 @@ export default function AlmaProposal() {
       {/* Header */}
       <div style={{ background: C.darkBrown, padding: '48px 24px 40px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div
-            style={{
-              color: C.lime,
-              fontSize: 20,
-              fontStyle: 'italic',
-              marginBottom: 24,
-              letterSpacing: 0.5,
-            }}
-          >
-            alma
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
+            <svg width="36" height="36" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26.6898 53.3856C14.3315 53.3675 9.81175 51.0963 5.36445 46.6324C1.8042 43.0565 0 36.3455 0 26.6928C0 17.0402 1.8042 10.3292 5.36445 6.75324C9.81778 2.28329 14.3375 0.0120809 26.6898 0C39.0481 0.0181214 43.5738 2.28933 48.0211 6.75324C51.5814 10.3292 53.3856 17.0402 53.3856 26.6928C53.3856 36.3455 51.5814 43.0565 48.0211 46.6324C43.5738 51.1024 39.0481 53.3736 26.6958 53.3856H26.6898Z" fill={C.lime} />
+              <g transform="translate(8, 10)">
+                <path d="M18.666 10.2929C21.4961 10.2929 23.7952 7.98547 23.7952 5.14645C23.7952 2.30743 21.5021 0 18.666 0C15.8299 0 13.5368 2.30743 13.5368 5.14645C13.5368 7.98547 15.8299 10.2929 18.666 10.2929Z" fill={C.green} />
+                <path d="M18.6648 13.0295C13.421 13.0295 10.3495 13.4764 8.79869 13.9838C8.0444 14.2315 7.67628 15.0893 8.02024 15.8081C9.89691 19.7465 13.958 22.4767 18.6648 22.4767C23.3716 22.4767 27.4266 19.7525 29.3033 15.8202C29.6473 15.1013 29.2731 14.2436 28.5188 13.9959C26.9439 13.4825 23.8543 13.0295 18.6648 13.0295Z" fill={C.green} />
+                <path d="M35.0551 23.4752C34.9344 23.2578 34.6689 23.1611 34.4395 23.2578C33.3172 23.7108 31.8388 23.7169 30.1492 23.7289C27.8199 23.735 25.1708 23.7471 22.564 24.9914C21.164 25.6559 19.9331 26.6042 18.8529 27.8546C18.7503 27.9694 18.5814 27.9694 18.4788 27.8546C17.3987 26.6042 16.1676 25.6559 14.7677 24.9914C12.1608 23.7471 9.51777 23.741 7.18249 23.7289C5.49891 23.7229 4.01448 23.7169 2.89209 23.2578C2.66279 23.1611 2.39727 23.2578 2.27658 23.4752L0.06203 27.4922C-0.0767595 27.7459 0.0258211 28.0539 0.285297 28.1808C2.5542 29.2741 4.99208 29.2801 7.1584 29.2922C9.08335 29.2983 10.8996 29.3043 12.3901 30.0171C12.8729 30.2466 14.128 30.8507 15.4254 33.1521C15.5581 33.3877 15.8055 33.5326 16.071 33.5326H21.2606C21.5261 33.5326 21.7735 33.3877 21.9062 33.1521C23.1976 30.8507 24.4588 30.2466 24.9415 30.0171C26.432 29.3043 28.2483 29.2983 30.1732 29.2922C32.3396 29.2862 34.7774 29.2741 37.0463 28.1808C37.3058 28.0599 37.4084 27.7459 37.2696 27.4922L35.0551 23.4752Z" fill={C.green} />
+              </g>
+            </svg>
+            <svg width="64" height="24" viewBox="0 0 96 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25.3656 27.3353C26.6144 31.0831 27.0474 31.7067 28.1529 32.0437V34.157H15.8543V32.0437C17.9676 31.8988 18.7849 31.3225 18.7849 30.0265C18.7849 29.4013 18.5928 28.6329 18.2558 27.6723L17.1503 24.3575H7.30198L6.14929 27.7684C5.81227 28.7778 5.66901 29.4974 5.66901 30.1226C5.66901 31.4674 6.58236 31.9004 8.64841 32.0437V34.157H0V32.0437C1.15269 31.7555 1.63297 31.0831 2.88334 27.4313L10.6184 4.80255L9.36965 1.05469H16.4795L25.3672 27.3337L25.3656 27.3353ZM8.30976 21.2821H16.1409L12.2497 9.60704L8.30976 21.2821Z" fill={C.cream} />
+              <path d="M39.8292 32.3322V34.1573H29.5479V32.3322C31.2769 32.044 31.5178 31.707 31.5178 28.7292V6.00439C31.5178 4.46747 31.1336 4.08325 29.74 4.08325V2.25816L35.842 0H37.7632V28.7292C37.7632 31.7086 38.6277 32.044 39.8292 32.3322Z" fill={C.cream} />
+              <path d="M71.9168 30.2654C71.9168 31.7063 72.2538 32.2354 73.3576 32.3314V34.1565H64.229V32.3314C65.3816 32.2354 65.6698 31.8023 65.6698 30.2654V19.1195C65.6698 17.0535 64.5643 16.1401 63.0274 16.1401C61.9708 16.1401 61.0574 16.4283 60.3362 17.0535C60.3834 17.4865 60.3834 17.9668 60.3834 18.4471V30.2654C60.3834 31.7063 60.7676 32.2354 61.9203 32.3314V34.1565H52.3602V32.3314C53.7538 32.2354 54.1381 31.7551 54.1381 30.2654V19.2628C54.1381 17.2456 53.1775 16.1401 51.4468 16.1401C50.4374 16.1401 49.5729 16.4283 48.8533 17.0046V30.4575C48.8533 31.7551 49.2375 32.1393 50.6312 32.3314V34.1565H40.8301V32.3314C42.367 32.1865 42.6079 31.9472 42.6079 30.4575V17.1007C42.6079 15.5638 42.2237 15.1795 40.8301 15.1795V13.3544L46.9321 11.0963H48.8533V15.4205C50.0548 12.3939 52.2641 10.8081 54.7144 10.8081C57.5489 10.8081 59.3268 12.2978 60.0464 15.1323C61.44 12.3939 63.41 10.8081 66.1957 10.8081C69.9908 10.8081 71.9135 13.2095 71.9135 18.4471V30.2654H71.9168Z" fill={C.cream} />
+              <path d="M95.2185 29.256C94.7854 33.0999 93.3934 34.6368 90.414 34.6368C88.0597 34.6368 86.6189 33.5313 85.9465 31.1299C84.8899 33.5313 83.112 34.8289 80.8538 34.8289C77.539 34.8289 75.5691 32.955 75.5691 29.8812C75.5691 26.8073 77.443 24.9334 81.383 23.6358L85.5623 22.2422V18.4943C85.5623 15.8047 84.0726 14.4583 81.9593 14.4583C80.7578 14.4583 79.846 14.6504 78.5957 15.2267C78.9327 16.9558 80.9499 17.2928 80.9499 19.3588C80.9499 21.1367 79.5562 22.4343 77.443 22.4343C75.5218 22.4343 74.3203 20.8974 74.3203 18.7353C74.3203 14.4111 79.172 10.8081 84.4568 10.8081C89.2613 10.8081 91.8076 13.4033 91.8076 18.7825V28.6308C91.8076 29.5914 92.0958 30.0244 92.6721 30.0244C93.1524 30.0244 93.4406 29.6874 93.6327 28.8717L95.2185 29.256ZM85.6095 29.1127C85.5623 28.5836 85.5623 28.0561 85.5623 27.4309V24.8846L84.1214 25.4137C82.3924 26.0861 81.5279 27.0467 81.5279 28.3442C81.5279 29.6418 82.2963 30.3614 83.449 30.3614C84.2663 30.3614 84.9387 29.9772 85.6111 29.1127H85.6095Z" fill={C.cream} />
+            </svg>
           </div>
           <h1
             style={{
@@ -259,6 +219,7 @@ export default function AlmaProposal() {
         }}
       >
         <div
+          className="nav-scroll"
           style={{
             maxWidth: 760,
             margin: '0 auto',
@@ -277,7 +238,7 @@ export default function AlmaProposal() {
               }
               style={{
                 background: active === i ? C.green : 'transparent',
-                color: active === i ? C.cream : C.warmGray,
+                color: active === i ? C.cream : C.medBrown,
               }}
             >
               {s}
@@ -329,12 +290,15 @@ export default function AlmaProposal() {
             the Claude API, and moves users straight from search to download.
           </p>
 
-          <div className="stats-grid">
-            <Stat num="6M+" label="Americans on GLP-1s" sub="12% of all US adults" />
-            <Stat num="$17.7B" label="Menopause market" sub="Growing to $24B by 2029" />
-            <Stat num="42%" label="US adults with obesity" sub="Doctor-referred cohort" />
-            <Stat num="95%" label="Nutrition app churn" sub="Median use: 6 months" />
-          </div>
+          <p
+            className="body-font"
+            style={{ color: C.darkBrown, fontSize: 13, lineHeight: 1.7 }}
+          >
+            The market is there: <strong>6M+ Americans</strong> are on GLP-1s (12% of all US adults),
+            the menopause wellness market is <strong>$17.7B</strong> and heading to $24B by 2029,
+            and <strong>42% of US adults</strong> live with obesity. Meanwhile, <strong>95% of nutrition
+            apps churn</strong> within six months. The window for a better acquisition channel is wide open.
+          </p>
         </div>
 
         {/* WHY THESE SEGMENTS */}
@@ -634,48 +598,46 @@ export default function AlmaProposal() {
         {/* HOW IT WORKS */}
         <div id="s-3" className="section" style={{ marginBottom: 56 }}>
           <h2 style={{ color: C.darkBrown, fontSize: 28, marginBottom: 24 }}>How It Works</h2>
-          <div className="card" style={{ marginBottom: 16 }}>
-            <div className="flow-container">
-              {[
-                { icon: '\uD83D\uDDB1', label: 'Ad Click', desc: 'Persona-targeted Meta ad' },
-                {
-                  icon: '\u2699',
-                  label: 'Calculator',
-                  desc: '6-8 questions: goals, context, body',
-                },
-                {
-                  icon: '\uD83E\uDDE0',
-                  label: 'AI Results',
-                  desc: 'Claude API: personalized plan',
-                },
-                { icon: '\uD83D\uDCF2', label: 'Download', desc: 'CTA + credibility markers' },
-              ].map((step, i, arr) => (
-                <div key={step.label} style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-                  <div className="flow-step">
-                    <div className="flow-icon" style={{ background: C.softGreen }}>
-                      {step.icon}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 700,
-                        color: C.darkBrown,
-                        marginBottom: 3,
-                      }}
-                    >
-                      {step.label}
-                    </div>
-                    <div
-                      className="body-font"
-                      style={{ fontSize: 11, color: C.warmGray, lineHeight: 1.4 }}
-                    >
-                      {step.desc}
-                    </div>
-                  </div>
-                  {i < arr.length - 1 && <div className="arrow-sep">{'\u25B8'}</div>}
-                </div>
-              ))}
-            </div>
+          <div style={{ marginBottom: 16 }}>
+            {[
+              { num: '1', label: 'Ad Click', desc: 'Persona-targeted Meta ad drives traffic to the calculator.' },
+              { num: '2', label: 'Calculator', desc: '6-8 questions capture goals, health context, and body data.' },
+              { num: '3', label: 'AI Results', desc: 'Claude API generates a personalized nutrition plan.' },
+              { num: '4', label: 'Download CTA', desc: 'Credibility markers + app store link convert to install.' },
+            ].map((step, i, arr) => (
+              <div
+                key={step.label}
+                className="body-font"
+                style={{
+                  display: 'flex',
+                  gap: 14,
+                  alignItems: 'baseline',
+                  padding: '12px 0',
+                  borderBottom: i < arr.length - 1 ? `1px solid ${C.lightCream}` : 'none',
+                }}
+              >
+                <span
+                  style={{
+                    color: C.green,
+                    fontSize: 18,
+                    fontWeight: 700,
+                    fontFamily: 'Georgia, serif',
+                    flexShrink: 0,
+                    width: 24,
+                  }}
+                >
+                  {step.num}
+                </span>
+                <span>
+                  <span style={{ fontWeight: 600, color: C.darkBrown, fontSize: 13 }}>
+                    {step.label}
+                  </span>
+                  <span style={{ color: C.warmGray, fontSize: 13, marginLeft: 6 }}>
+                    {step.desc}
+                  </span>
+                </span>
+              </div>
+            ))}
           </div>
 
           <div className="how-grid">
@@ -731,28 +693,21 @@ export default function AlmaProposal() {
               title: 'Measurement Framework',
               desc: 'KPIs and targets defined before launch. Segment comparison methodology. Integrated with your existing analytics. The key output: which audience converts cheapest and completes at the highest rate.',
             },
-          ].map((d) => (
+          ].map((d, i, arr) => (
             <div
               key={d.title}
               style={{
-                background: 'white',
-                borderRadius: 12,
-                overflow: 'hidden',
-                display: 'flex',
-                boxShadow: '0 1px 3px rgba(51,20,12,0.06)',
-                marginBottom: 12,
+                padding: '18px 0',
+                borderBottom: i < arr.length - 1 ? `1px solid ${C.lightCream}` : 'none',
               }}
             >
-              <div style={{ width: 4, background: C.green, flexShrink: 0 }} />
-              <div style={{ padding: '18px 22px' }}>
-                <h3 style={{ color: C.green, fontSize: 15, marginBottom: 6 }}>{d.title}</h3>
-                <p
-                  className="body-font"
-                  style={{ color: C.darkBrown, fontSize: 13, lineHeight: 1.6 }}
-                >
-                  {d.desc}
-                </p>
-              </div>
+              <h3 style={{ color: C.green, fontSize: 15, marginBottom: 6 }}>{d.title}</h3>
+              <p
+                className="body-font"
+                style={{ color: C.darkBrown, fontSize: 13, lineHeight: 1.6 }}
+              >
+                {d.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -860,107 +815,56 @@ export default function AlmaProposal() {
             If the test works, here&apos;s where it goes.
           </p>
 
-          {/* Month 1 */}
-          <div className="card" style={{ marginBottom: 14 }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+          <div style={{ borderLeft: `2px solid ${C.green}`, paddingLeft: 24, marginLeft: 8 }}>
+            {[
+              {
+                month: 'Month 1',
+                title: 'Prove the model',
+                desc: 'Launch calculator, run paid traffic across three segments. Measure which audience converts cheapest and downloads Alma. The data tells us where to double down.',
+              },
+              {
+                month: 'Month 2',
+                title: 'Second tool + organic',
+                desc: 'Second calculator type (nutrient gap finder or ingredient swapper) targeting different search intent. Start building SEO versions of the best-performing pages for organic traffic.',
+              },
+              {
+                month: 'Month 3',
+                title: 'Content engine',
+                desc: 'Turn paid learnings into content. Topics and angles that worked in ads become blog posts, social assets, and email sequences. Paid data de-risks the organic strategy.',
+              },
+            ].map((item, i, arr) => (
               <div
+                key={item.month}
                 style={{
-                  background: C.green,
-                  color: C.cream,
-                  borderRadius: 8,
-                  padding: '6px 12px',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  fontFamily: "'DM Sans', sans-serif",
-                  whiteSpace: 'nowrap',
+                  position: 'relative',
+                  paddingBottom: i < arr.length - 1 ? 28 : 0,
                 }}
               >
-                Month 1
-              </div>
-              <div>
                 <div
-                  style={{ fontSize: 15, fontWeight: 700, color: C.darkBrown, marginBottom: 6 }}
-                >
-                  Prove the model
-                </div>
-                <p
+                  style={{
+                    position: 'absolute',
+                    left: -31,
+                    top: 2,
+                    width: 12,
+                    height: 12,
+                    borderRadius: '50%',
+                    background: C.green,
+                  }}
+                />
+                <div
                   className="body-font"
-                  style={{ fontSize: 13, color: C.warmGray, lineHeight: 1.6 }}
+                  style={{ fontSize: 11, fontWeight: 600, color: C.green, letterSpacing: 0.3, textTransform: 'uppercase', marginBottom: 4 }}
                 >
-                  Launch calculator, run paid traffic across three segments. Measure which audience
-                  converts cheapest and downloads Alma. The data tells us where to double down.
+                  {item.month}
+                </div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: C.darkBrown, marginBottom: 4 }}>
+                  {item.title}
+                </div>
+                <p className="body-font" style={{ fontSize: 13, color: C.warmGray, lineHeight: 1.6 }}>
+                  {item.desc}
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Month 2 */}
-          <div className="card" style={{ marginBottom: 14 }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <div
-                style={{
-                  background: C.green,
-                  color: C.cream,
-                  borderRadius: 8,
-                  padding: '6px 12px',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  fontFamily: "'DM Sans', sans-serif",
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Month 2
-              </div>
-              <div>
-                <div
-                  style={{ fontSize: 15, fontWeight: 700, color: C.darkBrown, marginBottom: 6 }}
-                >
-                  Second tool + organic
-                </div>
-                <p
-                  className="body-font"
-                  style={{ fontSize: 13, color: C.warmGray, lineHeight: 1.6 }}
-                >
-                  Second calculator type (nutrient gap finder or ingredient swapper) targeting
-                  different search intent. Start building SEO versions of the best-performing
-                  pages for organic traffic.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Month 3 */}
-          <div className="card" style={{ marginBottom: 14 }}>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <div
-                style={{
-                  background: C.green,
-                  color: C.cream,
-                  borderRadius: 8,
-                  padding: '6px 12px',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  fontFamily: "'DM Sans', sans-serif",
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Month 3
-              </div>
-              <div>
-                <div
-                  style={{ fontSize: 15, fontWeight: 700, color: C.darkBrown, marginBottom: 6 }}
-                >
-                  Content engine
-                </div>
-                <p
-                  className="body-font"
-                  style={{ fontSize: 13, color: C.warmGray, lineHeight: 1.6 }}
-                >
-                  Turn paid learnings into content. Topics and angles that worked in ads become
-                  blog posts, social assets, and email sequences. Paid data de-risks the organic strategy.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Scalable framework */}
@@ -1016,22 +920,15 @@ export default function AlmaProposal() {
         }}
       >
         <div style={{ maxWidth: 760, margin: '0 auto' }}>
-          <p
-            className="body-font"
-            style={{ fontSize: 11, color: C.warmGray, lineHeight: 1.6, marginBottom: 8 }}
-          >
-            Confidential. Prepared by Gabriela Barreira for Alma Nutrition Inc.
-            Do not distribute or share without written permission.
-          </p>
           <p className="body-font" style={{ fontSize: 11, color: C.warmGray, lineHeight: 1.6 }}>
             Market data cited from publicly available industry reports.
             All projections are estimates, not guarantees.
           </p>
           <p
             className="body-font"
-            style={{ fontSize: 10, color: C.lightCream, marginTop: 16 }}
+            style={{ fontSize: 10, color: C.warmGray, marginTop: 12, opacity: 0.5 }}
           >
-            &copy; 2026 Gabriela Barreira. All rights reserved.
+            &copy; 2026 Gabriela Barreira
           </p>
         </div>
       </div>
