@@ -15,6 +15,12 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/proposals/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
     ]
   },
 }
