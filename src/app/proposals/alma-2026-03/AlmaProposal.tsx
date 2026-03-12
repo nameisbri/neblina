@@ -138,6 +138,9 @@ export default function AlmaProposal() {
         .campaign-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
         .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
+        .pointer-events-none.fixed.mix-blend-screen,
+        .pointer-events-none.fixed.inset-0 { display: none !important; }
+
         @media (max-width: 640px) {
           .segment-stats-grid { grid-template-columns: 1fr; }
           .segment-stats-grid-2 { grid-template-columns: 1fr; }
