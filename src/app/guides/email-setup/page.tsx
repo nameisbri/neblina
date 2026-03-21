@@ -16,18 +16,20 @@ export default function EmailSetupGuidePage() {
         </div>
       </header>
 
-      {/* Hero */}
-      <div className="max-w-3xl mx-auto px-6 md:px-12 pt-32 pb-16 text-center animate-fade-in">
-        <h1 className="font-serif text-4xl md:text-5xl text-text-primary tracking-tight">
-          Connect Your Business Email to Gmail
-        </h1>
-        <p className="mt-6 text-lg text-text-secondary">
-          Set up your business email in Gmail so you can send and receive from one inbox. Takes about 5 minutes.
-        </p>
-      </div>
-
       {/* Main Content */}
-      <main className="max-w-3xl mx-auto px-6 md:px-12 space-y-16 pb-24">
+      <main className="max-w-3xl mx-auto px-6 md:px-12 pb-24">
+
+        {/* Hero */}
+        <div className="pt-32 pb-16 text-center animate-fade-in">
+          <h1 className="font-serif text-4xl md:text-5xl text-text-primary tracking-tight">
+            Connect Your Business Email to Gmail
+          </h1>
+          <p className="mt-6 text-lg text-text-secondary">
+            Set up your business email in Gmail so you can send and receive from one inbox. Takes about 5 minutes.
+          </p>
+        </div>
+
+        <div className="space-y-16">
 
         {/* Prerequisites Card */}
         <div className="bg-fog-deep/60 border border-fog-mid/20 rounded-2xl p-8">
@@ -49,7 +51,7 @@ export default function EmailSetupGuidePage() {
         </div>
 
         {/* Table of Contents */}
-        <nav>
+        <nav aria-label="Page sections">
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6">
             <a href="#part-a" className="text-particle-glow hover:text-cta-hover transition-colors">
               Part A: Receive Emails
@@ -403,13 +405,15 @@ export default function EmailSetupGuidePage() {
           <div className="aspect-video rounded-xl overflow-hidden border border-fog-mid/20">
             <iframe
               src="https://www.loom.com/embed/22f6561896614d4fb601130ea67796ef"
-              allowFullScreen
+              allow="fullscreen"
+              sandbox="allow-scripts allow-same-origin allow-presentation"
               loading="lazy"
               title="Email setup video walkthrough"
               className="w-full h-full border-0"
             />
           </div>
         </section>
+        </div>
       </main>
 
       {/* Footer */}
