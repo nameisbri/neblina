@@ -420,7 +420,7 @@ export default function EmailSetupGuidePage() {
       <footer className="max-w-3xl mx-auto px-6 md:px-12 border-t border-fog-mid/20 py-16 text-center">
         <p className="font-serif text-xl text-particle-glow mb-2">Neblina</p>
         <p className="text-text-secondary text-sm">
-          Questions? Reach out to your Neblina Digital contact.
+          Questions? <a href="mailto:info@neblina.tech" className="text-particle-glow hover:text-cta-hover transition-colors">Reach out to us.</a>
         </p>
       </footer>
     </div>

@@ -22,6 +22,8 @@ interface CursorContextValue {
   isActive: boolean
   /** Set the cursor mode */
   setCursorMode: (mode: CursorMode) => void
+  /** Disable the custom cursor entirely (for subpages that don't use it) */
+  setIsActive: (active: boolean) => void
   /** Current magnetic target element (if any) */
   magnetTarget: HTMLElement | null
   /** Set the magnetic target */
@@ -141,6 +143,7 @@ export function CursorProvider({ children }: CursorProviderProps) {
     mode,
     isActive,
     setCursorMode,
+    setIsActive,
     magnetTarget,
     setMagnetTarget,
     isPressed,
