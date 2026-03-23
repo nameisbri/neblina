@@ -30,7 +30,7 @@ export function ServiceTags() {
               <motion.a
                 href={service.href}
                 onClick={(e) => handleClick(e, service.href)}
-                className="text-sm uppercase tracking-widest text-text-secondary/80 hover:text-particle-glow transition-colors duration-300 px-2 py-1"
+                className="text-sm uppercase tracking-widest text-text-secondary hover:text-particle-glow transition-colors duration-300 px-2 py-1"
                 whileHover={
                   reducedMotion
                     ? {}

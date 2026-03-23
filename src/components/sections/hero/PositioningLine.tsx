@@ -15,7 +15,7 @@ export function PositioningLine({ entranceComplete }: PositioningLineProps) {
     <motion.p
       initial={{ opacity: 0, y: 15 }}
       animate={{
-        opacity: entranceComplete ? 0.75 : 0,
+        opacity: entranceComplete ? 1 : 0,
         y: entranceComplete ? 0 : 15,
       }}
       transition={{

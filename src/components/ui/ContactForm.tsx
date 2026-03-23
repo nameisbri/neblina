@@ -58,6 +58,7 @@ export function ContactForm() {
   const [apiError, setApiError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [errorSummary, setErrorSummary] = useState('')
 
   /**
    * Validates all form fields and updates error state.
@@ -81,7 +82,13 @@ export function ContactForm() {
     }
 
     setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+    const errorCount = Object.keys(newErrors).length
+    if (errorCount > 0) {
+      setErrorSummary(`Please fix ${errorCount} error${errorCount > 1 ? 's' : ''} in the form`)
+    } else {
+      setErrorSummary('')
+    }
+    return errorCount === 0
   }
 
   /**
@@ -149,9 +156,12 @@ export function ContactForm() {
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }))
     }
-    // Clear API error when user makes changes
+    // Clear API error and summary when user makes changes
     if (apiError) {
       setApiError(null)
+    }
+    if (errorSummary) {
+      setErrorSummary('')
     }
   }
 
@@ -242,6 +252,10 @@ export function ContactForm() {
               {apiError}
             </div>
           )}
+
+          <div aria-live="assertive" className="sr-only">
+            {errorSummary}
+          </div>
 
           <Button
             type="submit"

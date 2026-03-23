@@ -39,7 +39,7 @@ export function Philosophy() {
         {/* Right — condensed principles */}
         <div className="lg:pt-4">
           <ScrollReveal delay={0.15}>
-            <span className="text-text-secondary/60 text-xs tracking-[0.2em] uppercase block mb-6">
+            <span className="text-text-secondary text-xs tracking-[0.2em] uppercase block mb-6">
               How we work
             </span>
           </ScrollReveal>

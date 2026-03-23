@@ -64,6 +64,8 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
               {project.screenshots.slice(0, 3).map((screenshot, index) => (
                 <motion.div
                   key={screenshot.src}
+                  role="button"
+                  tabIndex={0}
                   className="relative group cursor-pointer"
                   style={{ marginTop: index === 1 ? '2rem' : 0 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -71,6 +73,13 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                   transition={{ delay: index * 0.12, duration: 0.5 }}
                   viewport={{ once: true }}
                   onClick={() => setLightboxIndex(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setLightboxIndex(index)
+                    }
+                  }}
+                  aria-label={`View ${screenshot.alt}`}
                 >
                   <div className="rounded-lg overflow-hidden border border-fog-mid/15">
                     <Image
@@ -90,12 +99,21 @@ export function FlagshipProjectCard({ project }: FlagshipProjectCardProps) {
                   {project.screenshots.slice(0).map((screenshot, index) => (
                     <motion.div
                       key={screenshot.src}
+                      role="button"
+                      tabIndex={0}
                       className="relative group cursor-pointer"
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 + index * 0.08, duration: 0.4 }}
                       viewport={{ once: true }}
                       onClick={() => setLightboxIndex(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          setLightboxIndex(index)
+                        }
+                      }}
+                      aria-label={`View ${screenshot.alt}`}
                     >
                       <div className="rounded-lg overflow-hidden border border-fog-mid/15">
                         <Image

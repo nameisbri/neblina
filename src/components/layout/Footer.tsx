@@ -75,7 +75,7 @@ export function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <p className="text-sm text-fog-mid">
+          <p className="text-sm text-text-secondary">
             &copy; 2026 Neblina
           </p>
         </motion.div>

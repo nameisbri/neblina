@@ -91,6 +91,7 @@ export function Header() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
+                      aria-current={activeSection === link.href.slice(1) ? 'true' : undefined}
                       className={cn(
                         'text-sm transition-colors relative',
                         activeSection === link.href.slice(1)

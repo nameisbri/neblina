@@ -27,12 +27,14 @@ const Moon = dynamic(
 export default function Home() {
   return (
     <>
-      {/* Visual effects layer */}
-      <StarField />
-      <FogSystem />
-      <InteractiveFog />
-      <ParticleCanvas />
-      <Moon />
+      {/* Visual effects layer — decorative, hidden from screen readers */}
+      <div aria-hidden="true">
+        <StarField />
+        <FogSystem />
+        <InteractiveFog />
+        <ParticleCanvas />
+        <Moon />
+      </div>
 
       <Header />
       <main id="main-content" className="relative z-20">

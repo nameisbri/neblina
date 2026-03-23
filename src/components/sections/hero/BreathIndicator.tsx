@@ -79,6 +79,7 @@ export function BreathIndicator({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
+          aria-hidden="true"
         >
           <motion.p
             className="text-fog-mid/60 text-sm font-light tracking-wider"

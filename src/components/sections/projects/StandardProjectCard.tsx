@@ -67,12 +67,21 @@ export function StandardProjectCard({ project, index }: StandardProjectCardProps
               return (
                 <motion.div
                   key={screenshot.src}
+                  role="button"
+                  tabIndex={0}
                   className={`relative group cursor-pointer flex-shrink-0 ${isLandscape ? 'w-full' : 'w-28 lg:w-32'}`}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
                   viewport={{ once: true }}
                   onClick={() => setLightboxIndex(idx)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setLightboxIndex(idx)
+                    }
+                  }}
+                  aria-label={`View ${screenshot.alt}`}
                 >
                   <DeviceFrame variant={isLandscape ? 'browser' : 'phone'}>
                     <Image
