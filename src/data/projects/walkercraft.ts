@@ -8,7 +8,7 @@ export const walkercraftProject: StandardProject = {
   projectType: 'Web design · Lead automation · AI workflows',
   tagline: 'Carpentry site with an automated brain.',
   description:
-    'Website and automated lead system for a solo carpenter in Hamilton. When someone fills out the contact form, the system scores the lead, sends Brett an alert if it\'s urgent, drafts a reply, and follows up on its own over the next few weeks. He doesn\'t touch any of it.',
+    'Website and automated lead system for a solo carpenter in Hamilton. When someone fills out the contact form, the system scores the lead, fires off an alert if it\'s urgent, drafts a reply, and follows up on its own over the next few weeks. The owner never touches it.',
   status: 'live',
   statusLabel: 'Live',
   features: [
@@ -16,7 +16,9 @@ export const walkercraftProject: StandardProject = {
     'Urgent leads trigger an instant email with a draft reply',
     'Automated follow-up emails over days and weeks',
     'Morning recap of any leads that came in overnight',
-    'Brett approves outgoing messages before they send',
+    'The owner approves outgoing messages before they send',
+    'Custom CMS for updating pages and project photos without a developer',
+    'Analytics, SEO, and a Google Business Profile so every lead is tracked and the site surfaces in local and AI search',
   ],
   techStack: [
     { name: 'Astro', category: 'framework' },
@@ -25,6 +27,8 @@ export const walkercraftProject: StandardProject = {
     { name: 'Supabase', category: 'service' },
     { name: 'Gemini', category: 'service' },
     { name: 'Resend', category: 'service' },
+    { name: 'GA4', category: 'service' },
+    { name: 'PostHog', category: 'service' },
     { name: 'Docker', category: 'tool' },
   ],
   links: [

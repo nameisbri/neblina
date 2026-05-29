@@ -5,14 +5,14 @@ export * from './types'
 export { discloserProject } from './discloser'
 export { yellowBrollyProject } from './yellowBrolly'
 export { methodologyProject } from './methodology'
-export { ggymStyleGuideProject } from './ggymStyleGuide'
+export { maxcsolutionsProject } from './maxcsolutions'
 export { walkercraftProject } from './walkercraft'
 
 // Import for convenience arrays
 import { discloserProject } from './discloser'
 import { yellowBrollyProject } from './yellowBrolly'
 import { methodologyProject } from './methodology'
-import { ggymStyleGuideProject } from './ggymStyleGuide'
+import { maxcsolutionsProject } from './maxcsolutions'
 import { walkercraftProject } from './walkercraft'
 import type { Project, StandardProject } from './types'
 
@@ -22,7 +22,7 @@ export const flagshipProject = discloserProject
 /** Standard featured projects (ordered by visual hierarchy) */
 export const standardProjects: StandardProject[] = [
   yellowBrollyProject,
-  ggymStyleGuideProject,
+  maxcsolutionsProject,
 ]
 
 /** Highlighted project (Walkercraft — full-width showcase) */
@@ -36,7 +36,7 @@ export const allProjects: Project[] = [
   discloserProject,
   walkercraftProject,
   yellowBrollyProject,
-  ggymStyleGuideProject,
+  maxcsolutionsProject,
   methodologyProject,
 ]
 
@@ -50,6 +50,6 @@ export const PROJECT_THEMES = {
   discloser: discloserProject.theme,
   walkercraft: walkercraftProject.theme,
   yellowBrolly: yellowBrollyProject.theme,
-  ggymStyleGuide: ggymStyleGuideProject.theme,
+  maxcsolutions: maxcsolutionsProject.theme,
   methodology: methodologyProject.theme,
 } as const

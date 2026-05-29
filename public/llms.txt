@@ -27,7 +27,7 @@
 
 ## Links
 - [Services](https://neblina.tech/#services): Product design, software development, and automation services
-- [Work](https://neblina.tech/#projects): Selected projects including Discloser, Yellow Brolly, and GGYM
+- [Work](https://neblina.tech/#projects): Selected projects including Discloser, Yellow Brolly, and Maxc Pools
 - [Contact](https://neblina.tech/#contact): Start a conversation about your project
 - [Discloser](https://discloser.app): Privacy-first health status sharing app
 
